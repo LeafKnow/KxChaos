@@ -1,0 +1,107 @@
+ext {
+    //版本号管理
+    android = [
+            compileSdkVersion: 26,
+            buildToolsVersion: "26.0.1",
+
+            minSdkVersion    : 15,
+            targetSdkVersion : 26,
+
+            versionCode      : 1,
+            versionName      : '0.0.1',
+            applicationId    :'com.yq.action',
+
+            VSupportSdk      : '26.+',
+            VconstraintLayout: '1.0.2',
+
+            vrxlifecycle     : '0.5.0',//网络请求生命周期管理
+
+            vrxbinding2       : '2.0.0',
+
+            vokhttp          :'3.2.0',
+            vretrofit        :'2.3.0',
+            veventbus        :'3.0.0',
+            vglide           :'3.7.0',
+            vbutterknife     :'8.8.1',
+            vlogutils        :'1.5.1.1',
+            vlog2file        :'1.0.0',
+            varouterApi      :'1.2.2',
+            varouterCompiler :'1.0.3',
+            vrxandroid       :'2.0.0',
+            vrxjava          :'2.0.2',
+            vViseutils       :'1.1.0',
+            vcrashreportUpgrade:'1.3.1',
+            vmultidex        :'1.0.0',
+            vsonic           :'1.0.0'
+
+    ]
+
+    dependencies = [
+            "appcompat-v7"   :
+                    "com.android.support:appcompat-v7:${android["VSupportSdk"]}",
+            "support-v4"     :
+                    "com.android.support:support-v4:${android["VSupportSdk"]}",
+            "design"         :
+                    "com.android.support:design:${android["VSupportSdk"]}",
+            "annotations"    :
+                    "com.android.support:support-annotations:${android["VSupportSdk"]}",
+            "recyclerview-v7":
+                    "com.android.support:recyclerview-v7:${android["VSupportSdk"]}",
+            "cardview-v7"    :
+                    "com.android.support:cardview-v7:${android["VSupportSdk"]}",
+            "constraint-layout"    :
+                    "com.android.support.constraint:constraint-layout:${android["VconstraintLayout"]}",
+            "rxlifecycle"    :
+                    "com.trello:rxlifecycle:${android["vrxlifecycle"]}",
+            "rxlifecycle-components"   :
+                    "com.trello:rxlifecycle-components:${android["vrxlifecycle"]}",
+            "rxbinding"      :
+                    "com.jakewharton.rxbinding2:rxbinding:${android["vrxbinding2"]}",
+            "rxbinding-support-v4"     :
+                    "com.jakewharton.rxbinding2:rxbinding-support-v4:${android["vrxbinding2"]}",
+            "rxbinding-appcompat-v7"   :
+                    "com.jakewharton.rxbinding2:rxbinding-appcompat-v7:${android["vrxbinding2"]}",
+            "rxbinding-design"         :
+                    "com.jakewharton.rxbinding2:rxbinding-design:${android["vrxbinding2"]}",
+            "rxbinding-recyclerview-v7":
+                    "com.jakewharton.rxbinding2:rxbinding-recyclerview-v7:${android["vrxbinding2"]}",
+            "okhttp"                   :
+                    "com.squareup.okhttp3:okhttp:${android["vokhttp"]}",
+            "logging-interceptor"      :
+                    "com.squareup.okhttp3:logging-interceptor:${android["vokhttp"]}",
+            "retrofit"      :
+                    "com.squareup.retrofit2:retrofit:${android["vretrofit"]}",
+            "adapter-rxjava2":
+                    "com.squareup.retrofit2:adapter-rxjava2:${android["vretrofit"]}",
+            "converter-gson":
+                    "com.squareup.retrofit2:converter-gson:${android["vretrofit"]}",
+            "eventbus"      :
+                    "org.greenrobot:eventbus:${android["veventbus"]}",
+            "glide":
+                    "com.github.bumptech.glide:glide:${android["vglide"]}",
+            "butterknife":
+                    "com.jakewharton:butterknife:${android["vbutterknife"]}",
+            "butterknife-compiler":
+                    "com.jakewharton:butterknife-compiler:${android["vbutterknife"]}",
+            "logutils":
+                    "com.apkfuns.logutils:library:${android["vlogutils"]}",
+            "log2file":
+                    "com.apkfuns.log2file:log2file:${android["vlog2file"]}",
+            "arouter-api":
+                    "com.alibaba:arouter-api:${android["varouterApi"]}",
+            "arouter-compiler":
+                    "com.alibaba:arouter-compiler:${android["varouterCompiler"]}",
+            "rxandroid2":
+                    "io.reactivex.rxjava2:rxandroid:${android["vrxandroid"]}",
+            "rxjava2":
+                    "io.reactivex.rxjava2:rxjava:${android["vrxjava"]}",
+            "viseutils":
+                    "com.vise.xiaoyaoyou:viseutils:${android["vViseutils"]}",
+            "multidex":
+                    "com.android.support:multidex:${android["vmultidex"]}",
+            "crashreport_upgrade":
+                    "com.tencent.bugly:crashreport_upgrade:${android["vcrashreportUpgrade"]}",
+            "sonic":
+                    "com.tencent.sonic:sdk:${android["vsonic"]}",
+    ]
+}
