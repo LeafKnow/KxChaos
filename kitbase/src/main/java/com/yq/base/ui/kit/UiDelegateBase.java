@@ -1,9 +1,11 @@
 package com.yq.base.ui.kit;
 
 import android.content.Context;
+import android.os.Build;
 import android.view.View;
 import android.widget.Toast;
 
+import com.aries.ui.util.RomUtil;
 import com.jakewharton.rxbinding.view.RxView;
 
 import java.util.concurrent.TimeUnit;
@@ -71,6 +73,17 @@ public class UiDelegateBase implements UiDelegate {
     public Observable click(View view) {
         return RxView.clicks(view)
                 .throttleFirst(1000, TimeUnit.MILLISECONDS);
+    }
+    public String getSubText() {
+        String text = "Android" + Build.VERSION.RELEASE;
+        if (RomUtil.isMIUI()) {
+            text += "-MIUI" + RomUtil.getMIUIVersion();
+        } else if (RomUtil.isFlyme()) {
+            text += "-Flyme" + RomUtil.getFlymeVersionCode();
+        } else if (RomUtil.isEMUI()) {
+            text += "-EMUI" + RomUtil.getEMUIVersion();
+        }
+        return text;
     }
 
 }

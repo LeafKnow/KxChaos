@@ -32,7 +32,8 @@ ext {
             vViseutils       :'1.1.0',
             vcrashreportUpgrade:'1.3.1',
             vmultidex        :'1.0.0',
-            vsonic           :'1.0.0'
+            vsonic           :'1.0.0',
+            vtitleBarview    :'2.0.0',
 
     ]
 
@@ -103,5 +104,7 @@ ext {
                     "com.tencent.bugly:crashreport_upgrade:${android["vcrashreportUpgrade"]}",
             "sonic":
                     "com.tencent.sonic:sdk:${android["vsonic"]}",
+            "vtitleBarview"     :
+                    "com.github.AriesHoo:TitleBarView:${android["vtitleBarview"]}"
     ]
 }

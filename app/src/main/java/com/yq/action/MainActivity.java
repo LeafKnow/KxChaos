@@ -1,6 +1,7 @@
 package com.yq.action;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import com.yq.base.ui.act.KitBaseAct;
@@ -32,5 +33,12 @@ public class MainActivity extends KitBaseAct {
     @Override
     public boolean useEventBus() {
         return false;
+    }
+
+    @Override
+    protected void setTitleBar() {
+        titleBar.setTitleMainText("主标题");
+
+
     }
 }

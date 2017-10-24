@@ -22,4 +22,5 @@ public interface UiDelegate {
     void toastShort(String msg);
     void toastLong(String msg);
     Observable click(View view);
+     String getSubText();
 }
