@@ -16,6 +16,8 @@ import com.yq.base.ui.kit.UiCallback;
 import com.yq.base.ui.kit.UiDelegate;
 import com.yq.base.ui.kit.UiDelegateBase;
 
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import me.yokeyword.fragmentation.SupportFragment;
 
 /**
@@ -29,7 +31,7 @@ public abstract class KitBaseFmt extends SupportFragment implements UiCallback {
     protected UiDelegate uiDelegate;
     protected TitleBarView titleBar;
     protected int type = 0;
-
+    Unbinder unbinder;
     public KitBaseFmt() {
         // Required empty public constructor
     }
@@ -53,6 +55,7 @@ public abstract class KitBaseFmt extends SupportFragment implements UiCallback {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         initData(savedInstanceState);
+        unbinder = ButterKnife.bind(this,rootView);
         initTitle();
         setListener();
     }
@@ -110,5 +113,8 @@ public abstract class KitBaseFmt extends SupportFragment implements UiCallback {
     public void onDestroyView() {
         super.onDestroyView();
         getUiDelegate().destory();
+        if (null!=unbinder){
+            unbinder.unbind();
+        }
     }
 }

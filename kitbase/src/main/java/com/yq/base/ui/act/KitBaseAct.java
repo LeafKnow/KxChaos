@@ -11,6 +11,8 @@ import com.yq.base.ui.kit.UiCallback;
 import com.yq.base.ui.kit.UiDelegate;
 import com.yq.base.ui.kit.UiDelegateBase;
 
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import me.yokeyword.fragmentation_swipeback.SwipeBackActivity;
 
 
@@ -22,6 +24,7 @@ public abstract class KitBaseAct extends SwipeBackActivity implements UiCallback
     protected UiDelegate uiDelegate;
     protected TitleBarView titleBar;
     protected int type = 0;
+    Unbinder unbinder;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +34,7 @@ public abstract class KitBaseAct extends SwipeBackActivity implements UiCallback
             setContentView(getLayoutId());
         }
         initData(savedInstanceState);
+        unbinder = ButterKnife.bind(this);
         initTitle();
         setListener();
 
@@ -76,5 +80,8 @@ public abstract class KitBaseAct extends SwipeBackActivity implements UiCallback
     protected void onDestroy() {
         super.onDestroy();
         getUiDelegate().destory();
+        if (null!=unbinder){
+            unbinder.unbind();
+        }
     }
 }

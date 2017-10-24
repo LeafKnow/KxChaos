@@ -49,4 +49,7 @@ dependencies {
     compile rootProject.ext.dependencies["rxandroid2"]
     compile rootProject.ext.dependencies["rxjava2"]
     compile rootProject.ext.dependencies["vtitleBarview"]
+
+    //butterknife
+    compile rootProject.ext.dependencies["butterknife"]
 }
