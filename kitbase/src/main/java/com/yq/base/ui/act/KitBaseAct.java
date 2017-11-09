@@ -32,11 +32,13 @@ public abstract class KitBaseAct extends SwipeBackActivity implements UiCallback
 
         if (getLayoutId() > 0) {
             setContentView(getLayoutId());
+            unbinder = ButterKnife.bind(this);
         }
         initData(savedInstanceState);
-        unbinder = ButterKnife.bind(this);
+
         initTitle();
         setListener();
+        setSwipeBackEnable(false);
 
     }
     protected void initTitle() {

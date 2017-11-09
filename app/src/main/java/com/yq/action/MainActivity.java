@@ -16,6 +16,7 @@ public class MainActivity extends KitBaseAct {
     @Override
     public void initData(Bundle savedInstanceState) {
         //tvText= (TextView) findViewById(R.id.tv_text);
+
     }
 
     @Override
@@ -23,7 +24,8 @@ public class MainActivity extends KitBaseAct {
         getUiDelegate().click(tvText).subscribe(new Action1() {
             @Override
             public void call(Object o) {
-                tvText.setText("set kit base");
+                // 1. 应用内简单的跳转(通过URL跳转在'中阶使用'中)
+                //ARouter.getInstance().build(RouteConfig.ActConfig.LOGIN_ACT).navigation();
             }
         });
     }
@@ -42,7 +44,6 @@ public class MainActivity extends KitBaseAct {
     protected void setTitleBar() {
         titleBar.setTitleMainText("主标题");
         setTitleLine(true);
-
     }
 
 }

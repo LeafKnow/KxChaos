@@ -11,6 +11,7 @@ android {
         versionName rootProject.ext.android.versionName
         applicationId rootProject.ext.android.applicationId
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -27,5 +28,8 @@ dependencies {
     //butterknife
     compile rootProject.ext.dependencies["butterknife"]
     annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
+    //arouter
+//    annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
     compile project(':kitbase')
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
 }
