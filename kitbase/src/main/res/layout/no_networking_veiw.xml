@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:layout_height="match_parent">
+    <ImageView
+        android:layout_marginTop="50dp"
+        android:id="@+id/btn_no_worke_retry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/module_base_fail_img" />
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:id="@+id/module_base_fial_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="似乎出了点问题..."
+        android:textColor="#666666"
+        android:textSize="15dp" />
+
+</LinearLayout>

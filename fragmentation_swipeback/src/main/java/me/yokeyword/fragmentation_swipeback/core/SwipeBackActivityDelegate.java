@@ -54,5 +54,6 @@ public class SwipeBackActivityDelegate {
         mSwipeBackLayout = new SwipeBackLayout(mActivity);
         ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         mSwipeBackLayout.setLayoutParams(params);
+        mSwipeBackLayout.setBackgroundColor(Color.TRANSPARENT);
     }
 }

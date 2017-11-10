@@ -1,6 +1,8 @@
 package com.yq.base.ui.act;
 
 import android.app.Activity;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -38,7 +40,7 @@ public abstract class KitBaseAct extends SwipeBackActivity implements UiCallback
 
         initTitle();
         setListener();
-        setSwipeBackEnable(false);
+//        setSwipeBackEnable(false);
 
     }
     protected void initTitle() {
@@ -86,4 +88,7 @@ public abstract class KitBaseAct extends SwipeBackActivity implements UiCallback
             unbinder.unbind();
         }
     }
+
+
+
 }

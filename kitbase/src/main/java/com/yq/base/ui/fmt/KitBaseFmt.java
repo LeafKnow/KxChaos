@@ -3,6 +3,8 @@ package com.yq.base.ui.fmt;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -119,4 +121,5 @@ public abstract class KitBaseFmt extends SwipeBackFragment implements UiCallback
             unbinder.unbind();
         }
     }
+
 }

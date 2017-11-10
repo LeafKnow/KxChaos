@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="img_tag" type="id" />
+    <item name="drag_ban_tag" type="id" />
+    <item name="iv_play_button" type="id" />
+    <item name="refresh_head" type="id" />
+    <item name="btn_empty_retry" type="id" />
+    <item name="btn_error_retry" type="id" />
+    <item name="btn_no_worke_retry" type="id"></item>
+    <item name="adapter_item_tag_key" type="id" />
+</resources>
