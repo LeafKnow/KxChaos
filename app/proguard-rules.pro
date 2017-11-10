@@ -23,3 +23,6 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+#arouter路由混淆配置
+#-keep public class com.alibaba.android.arouter.routes.**{*;}

@@ -9,9 +9,28 @@ android {
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode rootProject.ext.android.versionCode
         versionName rootProject.ext.android.versionName
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [ moduleName : project.getName() ]
+            }
+        }
     }
     buildTypes {
+        debug {
+            //applicationIdSuffix ".debug"
+            buildConfigField  "boolean", "ISDEBUG","true"
+            buildConfigField "boolean", "LOG","true"
+            //buildConfigField "boolean", "LOG_HTTP_CALLS", "true"
+            //resValue "string", "app_name", "Example DEBUG"
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
         release {
+            buildConfigField "boolean", "ISDEBUG", "false"
+            buildConfigField "boolean", "LOG","false"
+            //buildConfigField "boolean", "LOG_HTTP_CALLS", "false"
+            // resValue "string", "app_name", "Example"//替换应用名称
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }

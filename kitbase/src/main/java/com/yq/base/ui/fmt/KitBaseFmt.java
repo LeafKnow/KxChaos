@@ -19,11 +19,12 @@ import com.yq.base.ui.kit.UiDelegateBase;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import me.yokeyword.fragmentation.SupportFragment;
+import me.yokeyword.fragmentation_swipeback.SwipeBackFragment;
 
 /**
  * 公用BaseFmt父类
  */
-public abstract class KitBaseFmt extends SupportFragment implements UiCallback {
+public abstract class KitBaseFmt extends SwipeBackFragment implements UiCallback {
 
     protected View rootView;
     protected LayoutInflater layoutInflater;
@@ -58,9 +59,10 @@ public abstract class KitBaseFmt extends SupportFragment implements UiCallback {
         unbinder = ButterKnife.bind(this,rootView);
         initTitle();
         setListener();
+        setSwipeBackEnable(false);
     }
     protected void initTitle() {
-        titleBar = (TitleBarView) _mActivity.findViewById(R.id.titleBar);
+        titleBar = _mActivity.findViewById(R.id.titleBar);
         if (titleBar == null) {
             return;
         }
