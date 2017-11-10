@@ -56,17 +56,22 @@ android {
     }
     //多渠道打包 (渠道号配置)
     productFlavors {
-        show_01_chann {
-            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "show_01_chann"]
-        }
+        show_01_chann {}
         show_02_chann {}
+
+        productFlavors.all {//配置全局渠道名生成
+
+            flavor -> flavor.manifestPlaceholders = [NAME_VALUE: name]
+        }
     }
+    //配置是否混淆和混淆文件
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    //忽略重复文件
     packagingOptions {
         exclude 'META-INF/rxjava.properties'
     }
