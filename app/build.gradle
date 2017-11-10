@@ -1,5 +1,11 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.jakewharton.butterknife'
+
+def buildTime() {
+    def date = new Date();
+    def formatDate = date.format('yyyyMMdd');
+    return formatDate;
+}
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     buildToolsVersion rootProject.ext.android.buildToolsVersion
@@ -11,7 +17,50 @@ android {
         versionName rootProject.ext.android.versionName
         applicationId rootProject.ext.android.applicationId
     }
-
+    //签名打包配置
+    signingConfigs {
+        outAPK {
+            keyAlias 'key0'
+            keyPassword '20171110'
+            storeFile file('../doc//key/Ckey.jks')
+            storePassword '20171110'
+        }
+        release {
+            keyAlias 'key0'
+            keyPassword '20171110'
+            storeFile file('../doc//key/Ckey.jks')
+            storePassword '20171110'
+        }
+    }
+    //制定包生成目录和文件名
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.release
+        }
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.outAPK
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    if (output.outputFile != null && output.outputFile.name.endsWith('.apk')
+                            && 'release'.equals(variant.buildType.name)) {
+                        def apkFile = new File("${output.outputFile.getParent()}/outapk/${buildTime()}",
+                                "Kchaos_cm_${buildTime()}_v${variant.versionName}_release_${variant.flavorName}.apk")
+                        output.outputFile = apkFile
+                    }
+                }
+            }
+        }
+    }
+    //多渠道打包 (渠道号配置)
+    productFlavors {
+        show_01_chann {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "show_01_chann"]
+        }
+        show_02_chann {}
+    }
     buildTypes {
         release {
             minifyEnabled false
