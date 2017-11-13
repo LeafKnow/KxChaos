@@ -1,10 +1,12 @@
 package com.yq.base.ui.kit;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Build;
 import android.view.View;
 import android.widget.Toast;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.aries.ui.util.RomUtil;
 import com.jakewharton.rxbinding.view.RxView;
 
@@ -20,7 +22,7 @@ import rx.Observable;
 public class UiDelegateBase implements UiDelegate {
 
     public Context context;
-
+    private ProgressDialog dialog;
     private UiDelegateBase(Context context) {
         this.context = context;
     }
@@ -41,7 +43,9 @@ public class UiDelegateBase implements UiDelegate {
 
     @Override
     public void destory() {
-
+        if(dialog!=null){
+            dialog.dismiss();
+        }
     }
 
     @Override
@@ -84,6 +88,27 @@ public class UiDelegateBase implements UiDelegate {
             text += "-EMUI" + RomUtil.getEMUIVersion();
         }
         return text;
+    }
+
+    @Override
+    public void showProgressDialog(String text){
+        if(dialog==null){
+            dialog=new ProgressDialog(context);
+        }
+        if(dialog.isShowing())dialog.dismiss();
+        dialog.setMessage(text);
+        dialog.show();
+    }
+    @Override
+    public void dismissProgressDialog(){
+        if(dialog!=null){
+            dialog.dismiss();
+        }
+    }
+
+    @Override
+    public void startAct(String path) {
+        ARouter.getInstance().build(path).navigation();
     }
 
 }

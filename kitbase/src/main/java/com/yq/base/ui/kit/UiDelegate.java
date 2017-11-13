@@ -2,6 +2,8 @@ package com.yq.base.ui.kit;
 
 import android.view.View;
 
+import com.alibaba.android.arouter.facade.Postcard;
+
 import rx.Observable;
 
 
@@ -22,5 +24,8 @@ public interface UiDelegate {
     void toastShort(String msg);
     void toastLong(String msg);
     Observable click(View view);
-     String getSubText();
+    String getSubText();
+    void showProgressDialog(String msg);
+    void dismissProgressDialog();
+    void startAct(String path);
 }
