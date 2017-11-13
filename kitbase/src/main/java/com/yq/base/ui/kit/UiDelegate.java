@@ -1,8 +1,11 @@
 package com.yq.base.ui.kit;
 
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.view.View;
 
 import com.alibaba.android.arouter.facade.Postcard;
+import com.yq.base.common.camera.OpenPhoto;
 
 import rx.Observable;
 
@@ -12,6 +15,9 @@ import rx.Observable;
  */
 
 public interface UiDelegate {
+
+
+
 
     void resume();
     void pause();
@@ -28,4 +34,9 @@ public interface UiDelegate {
     void showProgressDialog(String msg);
     void dismissProgressDialog();
     void startAct(String path);
+    void onCreate(@Nullable Bundle savedInstanceState);
+    void onSaveInstanceState(Bundle outState);
+    OpenPhoto getOpenPhoto();
+    void showOpenPhoto(View v);
+
 }

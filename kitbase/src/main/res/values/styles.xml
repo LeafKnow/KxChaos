@@ -9,4 +9,9 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+    <!-- pop 弹窗动画. -->
+    <style name="popwin_anim_style">
+        <item name="android:windowEnterAnimation">@anim/anim_up_pop_show</item>
+        <item name="android:windowExitAnimation">@anim/anim_down_pop_dismiss</item>
+    </style>
 </resources>

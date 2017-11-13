@@ -13,10 +13,8 @@
         <meta-data
             android:name="UMENG_CHANNEL"
             android:value="${NAME_VALUE}" />
-        <activity android:name=".MainActivity">
-
-        </activity>
-        <activity android:name=".ui.act.start.SplashAct"
+        <activity
+            android:name=".ui.act.start.SplashAct"
             android:theme="@style/mine_SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,6 +22,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.act.main.MainAct"
+            android:label="@string/title_activity_main"></activity>
     </application>
 
 </manifest>

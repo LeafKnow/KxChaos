@@ -3,9 +3,12 @@ package com.yq.base.ui.fmt;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.PersistableBundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -13,10 +16,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.aries.ui.view.title.TitleBarView;
+import com.jph.takephoto.model.TResult;
 import com.yq.base.R;
+import com.yq.base.common.camera.OpenPhoto;
 import com.yq.base.ui.kit.UiCallback;
 import com.yq.base.ui.kit.UiDelegate;
 import com.yq.base.ui.kit.UiDelegateBase;
+
+import org.greenrobot.eventbus.EventBus;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -25,8 +32,11 @@ import me.yokeyword.fragmentation_swipeback.SwipeBackFragment;
 
 /**
  * 公用BaseFmt父类
+ * 1 、相机/相册是否初始化  initPhoto
+ * 2、eventbus是否进行注册 eventRegister
+ *
  */
-public abstract class KitBaseFmt extends SwipeBackFragment implements UiCallback {
+public abstract class KitBaseFmt extends SwipeBackFragment implements UiCallback,OpenPhoto.OnTakeListener {
 
     protected View rootView;
     protected LayoutInflater layoutInflater;
@@ -44,6 +54,11 @@ public abstract class KitBaseFmt extends SwipeBackFragment implements UiCallback
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         layoutInflater = inflater;
+        if (initPhoto()) {
+            getUiDelegate().onCreate(savedInstanceState);
+            getUiDelegate().getOpenPhoto().setOnTakeListener(this);
+        }
+
         if (rootView == null) {
             rootView = inflater.inflate(getLayoutId(), null);
         } else {
@@ -54,14 +69,42 @@ public abstract class KitBaseFmt extends SwipeBackFragment implements UiCallback
         }
         return rootView;
     }
+
+
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        initData(savedInstanceState);
         unbinder = ButterKnife.bind(this,rootView);
+        initData(savedInstanceState);
         initTitle();
         setListener();
         setSwipeBackEnable(false);
+        if (eventRegister()){
+            EventBus.getDefault().register(this);
+        }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        if (initPhoto()) {
+            getUiDelegate().onSaveInstanceState(outState);
+
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (initPhoto()) {
+            getUiDelegate().getOpenPhoto().onRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (initPhoto()) {
+            getUiDelegate().getOpenPhoto().onActivityResult(requestCode, resultCode, data);
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
     protected void initTitle() {
         titleBar = _mActivity.findViewById(R.id.titleBar);
@@ -121,5 +164,29 @@ public abstract class KitBaseFmt extends SwipeBackFragment implements UiCallback
             unbinder.unbind();
         }
     }
+    @Override
+    public void takeSuccess(TResult result, String path) {
 
+    }
+
+    @Override
+    public void takeFail(TResult result, String msg) {
+
+    }
+
+    @Override
+    public void takeCancel() {
+
+    }
+
+
+    @Override
+    public boolean initPhoto() {
+        return false;
+    }
+
+    @Override
+    public boolean eventRegister() {
+        return false;
+    }
 }

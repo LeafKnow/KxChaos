@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="login_edt_phone" type="id" />
+    <item name="login_edt_pwd" type="id" />
+    <item name="login_btn_login" type="id"></item>
+</resources>

@@ -6,6 +6,7 @@ def buildTime() {
     def formatDate = date.format('yyyyMMdd');
     return formatDate;
 }
+
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     buildToolsVersion rootProject.ext.android.buildToolsVersion
@@ -52,7 +53,7 @@ android {
             applicationVariants.all { variant ->
                 variant.outputs.each { output ->
                     if (output.outputFile != null && output.outputFile.name.endsWith('.apk')
-                            && 'release'.equals(variant.buildType.name)) {
+                            && 'release' == variant.buildType.name) {
                         def apkFile = new File("${output.outputFile.getParent()}/outapk/${buildTime()}",
                                 "Kchaos_cm_${buildTime()}_v${variant.versionName}_release_${variant.flavorName}.apk")
                         output.outputFile = apkFile
@@ -66,7 +67,8 @@ android {
         show_01_chann {}
         show_02_chann {}
 
-        productFlavors.all {//配置全局渠道名生成
+        productFlavors.all {
+                //配置全局渠道名生成
 
             flavor -> flavor.manifestPlaceholders = [NAME_VALUE: name]
         }
@@ -85,9 +87,10 @@ android {
     //greendao数据库配置
     greendao {
         schemaVersion 1
-        daoPackage 'com.yq.action.greendao.gen'
-        targetGenDir 'src/main/java'
+        daoPackage 'com.yq.common.greendao.gen'
+        targetGenDir 'common/src/main/java'
     }
+
 }
 
 dependencies {
@@ -95,8 +98,12 @@ dependencies {
     //butterknife
     compile rootProject.ext.dependencies["butterknife"]
     annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
+    // arouter 替换成最新版本, 需要注意的是api
+    // 要与compiler匹配使用，均使用最新版可以保证兼容
+    compile rootProject.ext.dependencies["arouter-api"]
     //arouter
     annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
-    compile project(':kitbase')
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile project(':common')
+    compile project(':mine')
 }

@@ -1,14 +1,20 @@
 package com.yq.base.ui.kit;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Build;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Toast;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.aries.ui.util.RomUtil;
 import com.jakewharton.rxbinding.view.RxView;
+import com.yq.base.common.camera.OpenPhoto;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.concurrent.TimeUnit;
 
@@ -22,10 +28,13 @@ import rx.Observable;
 public class UiDelegateBase implements UiDelegate {
 
     public Context context;
-    private ProgressDialog dialog;
+    private ProgressDialog dialog;//加载状态
+    private OpenPhoto moPenPhoto;
     private UiDelegateBase(Context context) {
         this.context = context;
     }
+
+
 
     public static UiDelegateBase create(Context context) {
         return new UiDelegateBase(context);
@@ -46,6 +55,7 @@ public class UiDelegateBase implements UiDelegate {
         if(dialog!=null){
             dialog.dismiss();
         }
+        EventBus.getDefault().unregister(context);
     }
 
     @Override
@@ -109,6 +119,34 @@ public class UiDelegateBase implements UiDelegate {
     @Override
     public void startAct(String path) {
         ARouter.getInstance().build(path).navigation();
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        moPenPhoto=new OpenPhoto((Activity) context);
+        getOpenPhoto().getTakePhoto().onCreate(savedInstanceState);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        if (null!=getOpenPhoto()){
+            getOpenPhoto().getTakePhoto().onSaveInstanceState(outState);
+        }
+
+    }
+
+    @Override
+    public OpenPhoto getOpenPhoto() {
+        return moPenPhoto;
+    }
+
+    @Override
+    public void showOpenPhoto(View view) {
+        if (null!=getOpenPhoto()){
+            getOpenPhoto().openPhoto(view);
+        }else {
+            toastShort("拍照组件未初始化！");
+        }
     }
 
 }

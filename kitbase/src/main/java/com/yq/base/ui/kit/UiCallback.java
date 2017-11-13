@@ -13,5 +13,6 @@ public interface UiCallback {
 
     int getLayoutId();
 
-    boolean useEventBus();
+    boolean initPhoto();
+    boolean eventRegister();
 }

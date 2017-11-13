@@ -63,4 +63,9 @@ dependencies {
     //arouter
     annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
     compile rootProject.ext.dependencies["AVLoading"]
+    compile rootProject.ext.dependencies["takephoto"]
+    compile rootProject.ext.dependencies["greendao"]
+    compile rootProject.ext.dependencies["eventbus"]
+    //logutils
+    compile rootProject.ext.dependencies["logutils"]
 }
