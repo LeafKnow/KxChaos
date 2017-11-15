@@ -27,7 +27,8 @@ public class MineFmt extends KitBaseFmt {
     }
     @Override
     protected void setTitleBar() {
-
+        titleBar.setTitleMainText("");
+        titleBar.setVisibility(View.GONE);
     }
 
     @Override
@@ -44,4 +45,5 @@ public class MineFmt extends KitBaseFmt {
     public int getLayoutId() {
         return R.layout.fragment_mine_fmt;
     }
+
 }

@@ -1,4 +1,4 @@
-package com.yq.action.ui.fmt;
+package com.yq.action.ui.fmt.main;
 
 import android.os.Bundle;
 

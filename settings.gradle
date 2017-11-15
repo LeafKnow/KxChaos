@@ -1,1 +1,1 @@
-include ':app', ':kitbase', ':fragmentation_core', ':fragmentation', ':fragmentation_swipeback', ':libs', ':common', ':mine'
+include ':app', ':kitbase', ':fragmentation_core', ':fragmentation', ':fragmentation_swipeback', ':libs', ':common', ':mine', ':retlib'

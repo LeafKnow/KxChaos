@@ -20,7 +20,7 @@ android {
 
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = [ moduleName : project.getName() ]
+                arguments = [moduleName: project.getName()]
             }
         }
     }
@@ -88,7 +88,7 @@ android {
     greendao {
         schemaVersion 1
         daoPackage 'com.yq.common.greendao.gen'
-        targetGenDir 'common/src/main/java'
+        targetGenDir 'src/main/java'
     }
 
 }
@@ -103,7 +103,8 @@ dependencies {
     compile rootProject.ext.dependencies["arouter-api"]
     //arouter
     annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile project(':common')
     compile project(':mine')
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support:support-v4:26.+'
 }

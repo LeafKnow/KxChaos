@@ -75,8 +75,8 @@ public abstract class KitBaseFmt extends SwipeBackFragment implements UiCallback
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         unbinder = ButterKnife.bind(this,rootView);
-        initData(savedInstanceState);
         initTitle();
+        initData(savedInstanceState);
         setListener();
         setSwipeBackEnable(false);
         if (eventRegister()){
