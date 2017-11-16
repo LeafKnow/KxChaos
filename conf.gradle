@@ -37,7 +37,8 @@ ext {
             AVLoading        :'2.1.3',
             Vgreendao        :'3.2.2',
             Vtakephoto       :'4.0.3',
-            Vappintro        :'v4.2.2'
+            Vappintro        :'v4.2.2',
+            VadapterRxjava  :'2.0.1'
 
     ]
 
@@ -74,10 +75,12 @@ ext {
                     "com.squareup.okhttp3:okhttp:${android["vokhttp"]}",
             "logging-interceptor"      :
                     "com.squareup.okhttp3:logging-interceptor:${android["vokhttp"]}",
+            "adapter-rxjava"      :
+                    "com.squareup.retrofit2:adapter-rxjava:${android["VadapterRxjava"]}",
             "retrofit"      :
                     "com.squareup.retrofit2:retrofit:${android["vretrofit"]}",
-            "adapter-rxjava2":
-                    "com.squareup.retrofit2:adapter-rxjava2:${android["vretrofit"]}",
+//            "adapter-rxjava2":
+//                    "com.squareup.retrofit2:adapter-rxjava2:${android["vretrofit"]}",
             "converter-gson":
                     "com.squareup.retrofit2:converter-gson:${android["vretrofit"]}",
             "eventbus"      :

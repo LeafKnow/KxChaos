@@ -87,7 +87,7 @@ android {
     //greendao数据库配置
     greendao {
         schemaVersion 1
-        daoPackage 'com.yq.common.greendao.gen'
+        daoPackage 'com.yq.action.greendao.gen'
         targetGenDir 'src/main/java'
     }
 

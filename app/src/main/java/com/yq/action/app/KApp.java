@@ -10,16 +10,11 @@ import com.yq.base.app.KitBaseApp;
  */
 
 public class KApp extends KitBaseApp{
-    private static Context context;
-
-    public static Context getContext() {
-        return context;
-    }
 
     @Override
     public void onCreate() {
         super.onCreate();
-        context=this;
+
         GreenDaoManager.getInstance();
     }
 

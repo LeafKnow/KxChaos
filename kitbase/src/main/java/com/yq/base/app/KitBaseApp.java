@@ -1,6 +1,7 @@
 package com.yq.base.app;
 
 import android.app.Application;
+import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 
@@ -14,9 +15,16 @@ import butterknife.ButterKnife;
  */
 
 public class KitBaseApp extends Application {
+    private static Context context;
+
+    public static Context getContext() {
+        return context;
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
+        context=this;
         ButterKnife.setDebug(true);
 //        if (BuildConfig.ISDEBUG) {           // 这两行必须写在init之前，否则这些配置在init过程中将无效
             ARouter.openLog();     // 打印日志
