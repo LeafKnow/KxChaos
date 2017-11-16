@@ -22,6 +22,10 @@ import com.yq.base.common.camera.OpenPhoto;
 import com.yq.base.ui.kit.UiCallback;
 import com.yq.base.ui.kit.UiDelegate;
 import com.yq.base.ui.kit.UiDelegateBase;
+import com.yq.base.ui.mvp.BaseModel;
+import com.yq.base.ui.mvp.BasePresenter;
+import com.yq.base.ui.mvp.BaseView;
+import com.yq.base.ui.mvp.util.TUtil;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -36,8 +40,9 @@ import me.yokeyword.fragmentation_swipeback.SwipeBackFragment;
  * 2、eventbus是否进行注册 eventRegister
  *
  */
-public abstract class KitBaseFmt extends SwipeBackFragment implements UiCallback,OpenPhoto.OnTakeListener {
-
+public abstract class KitBaseFmt<T extends BasePresenter, E extends BaseModel> extends SwipeBackFragment implements UiCallback,OpenPhoto.OnTakeListener, BaseView {
+    public  T mPresenter;//UI控制层
+    public E mModel;//数据操作层
     protected View rootView;
     protected LayoutInflater layoutInflater;
     protected Activity context;
@@ -61,6 +66,8 @@ public abstract class KitBaseFmt extends SwipeBackFragment implements UiCallback
 
         if (rootView == null) {
             rootView = inflater.inflate(getLayoutId(), null);
+            mPresenter = TUtil.getT(this, 0);
+            mModel = TUtil.getT(this, 1);
         } else {
             ViewGroup viewGroup = (ViewGroup) rootView.getParent();
             if (viewGroup != null) {
@@ -162,6 +169,9 @@ public abstract class KitBaseFmt extends SwipeBackFragment implements UiCallback
         getUiDelegate().destory();
         if (null!=unbinder){
             unbinder.unbind();
+        }
+        if (null != mPresenter) {
+            mPresenter.onDestroy();
         }
     }
     @Override

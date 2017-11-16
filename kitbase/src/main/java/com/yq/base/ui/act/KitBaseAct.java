@@ -11,10 +11,15 @@ import android.view.View;
 import com.aries.ui.view.title.TitleBarView;
 import com.jph.takephoto.model.TResult;
 import com.yq.base.R;
+import com.yq.base.common.AppManager;
 import com.yq.base.common.camera.OpenPhoto;
 import com.yq.base.ui.kit.UiCallback;
 import com.yq.base.ui.kit.UiDelegate;
 import com.yq.base.ui.kit.UiDelegateBase;
+import com.yq.base.ui.mvp.BaseModel;
+import com.yq.base.ui.mvp.BasePresenter;
+import com.yq.base.ui.mvp.BaseView;
+import com.yq.base.ui.mvp.util.TUtil;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -28,7 +33,11 @@ import me.yokeyword.fragmentation_swipeback.SwipeBackActivity;
  *  * 1 、相机/相册是否初始化  initPhoto
  * 2、eventbus是否进行注册 eventRegister
  */
-public abstract class KitBaseAct extends SwipeBackActivity implements UiCallback, OpenPhoto.OnTakeListener {
+public abstract class KitBaseAct<T extends BasePresenter, E extends BaseModel> extends SwipeBackActivity implements UiCallback, OpenPhoto.OnTakeListener, BaseView {
+    //mvp
+    public  T mPresenter;//UI控制层
+    public E mModel;//数据操作层
+
     protected Activity context;
     protected UiDelegate uiDelegate;
     protected TitleBarView titleBar;
@@ -43,6 +52,8 @@ public abstract class KitBaseAct extends SwipeBackActivity implements UiCallback
         if (getLayoutId() > 0) {
             setContentView(getLayoutId());
             unbinder = ButterKnife.bind(this);
+            mPresenter = TUtil.getT(this, 0);
+            mModel = TUtil.getT(this, 1);
         }
         if (eventRegister()){
             EventBus.getDefault().register(this);
@@ -57,6 +68,7 @@ public abstract class KitBaseAct extends SwipeBackActivity implements UiCallback
         }
 
         setSwipeBackEnable(false);
+        AppManager.getAppManager().addActivity(this);
     }
 
     @Override
@@ -128,6 +140,10 @@ public abstract class KitBaseAct extends SwipeBackActivity implements UiCallback
         if (null != unbinder) {
             unbinder.unbind();
         }
+        if (null != mPresenter) {
+            mPresenter.onDestroy();
+        }
+        AppManager.getAppManager().finishActivity(this);
     }
 
     @Override
