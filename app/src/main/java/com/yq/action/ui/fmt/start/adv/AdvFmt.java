@@ -17,9 +17,9 @@ import rx.functions.Action1;
 /**
  * 启动页广告
  */
-public class AdvFmt extends KitBaseFmt {
+public class AdvFmt extends KitBaseFmt<AdvPresenter,AdvModel> implements AdvContract.View {
 
-
+    Handler handler;
     @BindView(R.id.tv_join_mian)
     TextView tvJoinMian;
 
@@ -40,6 +40,11 @@ public class AdvFmt extends KitBaseFmt {
     }
 
     @Override
+    public void initPresenter() {
+     mPresenter.setVM(this,mModel,this._mActivity);
+    }
+
+    @Override
     public void initData(Bundle savedInstanceState) {
         //显示广告展示时间
         startMain(5000);
@@ -57,15 +62,18 @@ public class AdvFmt extends KitBaseFmt {
     }
 
     public void startMain(int time) {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                startActivity(new Intent(_mActivity, MainAct.class));
-                _mActivity.finish();
-            }
-        }, time);
+        handler=new Handler();
+        handler.postDelayed(runnable, time);
     }
+    Runnable runnable=new Runnable() {
+        @Override
+        public void run() {
+            handler.removeCallbacks(runnable);
+            startActivity(new Intent(_mActivity, MainAct.class));
+            _mActivity.finish();
 
+        }
+    };
     @Override
     public int getLayoutId() {
         return R.layout.fragment_adv_fmt;

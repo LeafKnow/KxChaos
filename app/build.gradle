@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.jakewharton.butterknife'
-apply plugin: 'org.greenrobot.greendao' // apply plugin
+
 def buildTime() {
     def date = new Date();
     def formatDate = date.format('yyyyMMdd');
@@ -84,12 +84,7 @@ android {
     packagingOptions {
         exclude 'META-INF/rxjava.properties'
     }
-    //greendao数据库配置
-    greendao {
-        schemaVersion 1
-        daoPackage 'com.yq.action.greendao.gen'
-        targetGenDir 'src/main/java'
-    }
+
 
 }
 

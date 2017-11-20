@@ -68,6 +68,7 @@ public abstract class KitBaseFmt<T extends BasePresenter, E extends BaseModel> e
             rootView = inflater.inflate(getLayoutId(), null);
             mPresenter = TUtil.getT(this, 0);
             mModel = TUtil.getT(this, 1);
+            initPresenter();
         } else {
             ViewGroup viewGroup = (ViewGroup) rootView.getParent();
             if (viewGroup != null) {
@@ -194,6 +195,11 @@ public abstract class KitBaseFmt<T extends BasePresenter, E extends BaseModel> e
     public boolean initPhoto() {
         return false;
     }
+
+    /**
+     * 简单页面无需mvp就不用管此方法即可,完美兼容各种实际场景的变通
+     */
+    public abstract void initPresenter();
 
     @Override
     public boolean eventRegister() {

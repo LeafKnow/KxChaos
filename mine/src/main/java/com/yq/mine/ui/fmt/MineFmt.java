@@ -32,6 +32,11 @@ public class MineFmt extends KitBaseFmt {
     }
 
     @Override
+    public void initPresenter() {
+
+    }
+
+    @Override
     public void initData(Bundle savedInstanceState) {
 
     }
@@ -40,6 +45,7 @@ public class MineFmt extends KitBaseFmt {
     public void setListener() {
 
     }
+
 
     @Override
     public int getLayoutId() {

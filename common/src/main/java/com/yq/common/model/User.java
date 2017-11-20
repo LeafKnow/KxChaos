@@ -1,14 +1,11 @@
-package com.yq.action.model;
-
-import com.yq.action.db.GreenDaoManager;
-import com.yq.action.greendao.gen.UserDao;
+package com.yq.common.model;
 
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.Id;
 
 @Entity
-public class User extends BaseModel {
+public class User  {
     @Id
     protected Long id;
     private String name;
@@ -19,7 +16,7 @@ public class User extends BaseModel {
 
     @Generated(hash = 798285436)
     public User(Long id, String name, String accountNumber, String pwd,
-            String token, int state) {
+                String token, int state) {
         this.id = id;
         this.name = name;
         this.accountNumber = accountNumber;
@@ -49,9 +46,9 @@ public class User extends BaseModel {
     }
 
 
-    public static UserDao getUerDao(){
-        return GreenDaoManager.getInstance().getmDaoSession().getUserDao();
-    }
+//    public static UserDao getUerDao(){
+//        return GreenDaoManager.getInstance().getmDaoSession().getUserDao();
+//    }
 
     public String getAccountNumber() {
         return this.accountNumber;
@@ -84,4 +81,5 @@ public class User extends BaseModel {
     public void setState(int state) {
         this.state = state;
     }
+
 }

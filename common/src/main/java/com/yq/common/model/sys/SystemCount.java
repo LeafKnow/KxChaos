@@ -1,8 +1,10 @@
-package com.yq.action.model.sys;
+package com.yq.common.model.sys;
 
-import com.yq.action.db.GreenDaoManager;
-import com.yq.action.greendao.gen.SystemCountDao;
-import com.yq.action.model.BaseModel;
+
+
+import com.yq.common.db.GreenDaoManager;
+import com.yq.common.greendao.gen.SystemCountDao;
+import com.yq.common.model.BaseModel;
 
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Generated;

@@ -66,7 +66,7 @@ public abstract class KitBaseAct<T extends BasePresenter, E extends BaseModel> e
             getUiDelegate().onCreate(savedInstanceState);
             getUiDelegate().getOpenPhoto().setOnTakeListener(this);
         }
-
+        initPresenter();
         setSwipeBackEnable(false);
         AppManager.getAppManager().addActivity(this);
     }
@@ -96,6 +96,7 @@ public abstract class KitBaseAct<T extends BasePresenter, E extends BaseModel> e
     }
 
     protected void initTitle() {
+
         titleBar = (TitleBarView) findViewById(R.id.titleBar);
         if (titleBar == null) {
             return;
@@ -165,6 +166,11 @@ public abstract class KitBaseAct<T extends BasePresenter, E extends BaseModel> e
     public boolean initPhoto() {
         return false;
     }
+
+    /**
+     * 简单页面无需mvp就不用管此方法即可,完美兼容各种实际场景的变通
+     */
+    public abstract void initPresenter();
 
     @Override
     public boolean eventRegister() {

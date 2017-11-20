@@ -5,12 +5,12 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import com.yq.action.R;
-import com.yq.action.model.sys.SystemCount;
 import com.yq.action.ui.act.main.MainAct;
 import com.yq.action.ui.act.start.guide.GuideAct;
 import com.yq.action.ui.fmt.start.adv.AdvFmt;
 import com.yq.base.ui.act.KitBaseAct;
 import com.yq.common.common.sp.SpAdv;
+import com.yq.common.model.sys.SystemCount;
 
 import java.util.List;
 
@@ -18,7 +18,7 @@ import java.util.List;
  * 启动界面
  */
 public class SplashAct extends KitBaseAct {
-
+    Handler handler;
     @Override
     protected void setTitleBar() {
 
@@ -48,14 +48,16 @@ public class SplashAct extends KitBaseAct {
 
     }
     public void startMain(int time){
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                startActivity(new Intent(SplashAct.this, MainAct.class));
-                SplashAct.this.finish();
-            }
-        },time);
+        handler=new Handler();
+        handler.postDelayed(mRunnable,time);
     }
+    Runnable mRunnable=new Runnable() {
+        @Override
+        public void run() {
+            startActivity(new Intent(SplashAct.this, MainAct.class));
+            SplashAct.this.finish();
+        }
+    };
     public void startCount(){
         SystemCount systemCount=new SystemCount();
         List<SystemCount> systemCounts = SystemCount.getSystemDao().loadAll();
@@ -74,5 +76,19 @@ public class SplashAct extends KitBaseAct {
     @Override
     public boolean initPhoto() {
         return false;
+    }
+
+    @Override
+    public void initPresenter() {
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (null!=handler){
+            handler.removeCallbacks(mRunnable);
+            handler=null;
+        }
+        super.onDestroy();
     }
 }

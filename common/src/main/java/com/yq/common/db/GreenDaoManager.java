@@ -1,9 +1,10 @@
-package com.yq.action.db;
+package com.yq.common.db;
 
 
-import com.yq.action.app.KApp;
-import com.yq.action.greendao.gen.DaoMaster;
-import com.yq.action.greendao.gen.DaoSession;
+import com.yq.base.app.KitBaseApp;
+import com.yq.common.greendao.gen.DaoMaster;
+import com.yq.common.greendao.gen.DaoSession;
+
 
 public class GreenDaoManager {
   private DaoMaster mDaoMaster;
@@ -37,7 +38,7 @@ public class GreenDaoManager {
    */
   private void init()
   {
-      DaoMaster.DevOpenHelper devOpenHelper = new DaoMaster.DevOpenHelper(KApp.getContext(),
+      DaoMaster.DevOpenHelper devOpenHelper = new DaoMaster.DevOpenHelper(KitBaseApp.getContext(),
                                                                           "kit.db");
       mDaoMaster = new DaoMaster(devOpenHelper.getWritableDatabase());
       mDaoSession = mDaoMaster.newSession();

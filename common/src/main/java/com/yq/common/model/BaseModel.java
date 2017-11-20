@@ -1,4 +1,4 @@
-package com.yq.action.model;
+package com.yq.common.model;
 
 /**
  * Created by gaoshuqing on 2017/11/13.

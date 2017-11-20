@@ -48,6 +48,11 @@ public class MainFtm extends KitBaseFmt {
     }
 
     @Override
+    public void initPresenter() {
+
+    }
+
+    @Override
     public void initData(Bundle savedInstanceState) {
         SupportFragment firstFragment = findChildFragment(MineFmt.class);
         if (firstFragment == null) {
@@ -118,4 +123,5 @@ public class MainFtm extends KitBaseFmt {
     public boolean eventRegister() {
         return true;
     }
+
 }

@@ -24,6 +24,11 @@ public class MainAct extends KitBaseAct {
     }
 
     @Override
+    public void initPresenter() {
+
+    }
+
+    @Override
     public void initData(Bundle savedInstanceState) {
         if (findFragment(MainFtm.class) == null) {
             loadRootFragment(R.id.fl_container, MainFtm.newInstance());
@@ -51,4 +56,5 @@ public class MainAct extends KitBaseAct {
         // 设置横向(和安卓4.x动画相同)
         return new DefaultHorizontalAnimator();
     }
+
 }
