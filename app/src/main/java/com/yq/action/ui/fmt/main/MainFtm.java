@@ -8,7 +8,7 @@ import com.yq.common.event.StartBrotherEvent;
 import com.yq.common.event.TabSelectedEvent;
 import com.yq.common.widget.BottomBar;
 import com.yq.common.widget.BottomBarTab;
-import com.yq.mine.ui.fmt.MineFmt;
+import com.yq.mine.ui.fmt.mine.MineFmt;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;

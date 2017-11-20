@@ -6,8 +6,11 @@ package com.yq.common.config;
 
 public class RouteConfig {
     public static final String APP_GROPE="/kchoase/";
-    public class ActConfig{
-        public static final String MAIN_ACT=APP_GROPE+"MainAct";
+    public class ActConfig {
+        public static final String MAIN_ACT = APP_GROPE + "MainAct";
+        public static final String LOGIN_ACT = APP_GROPE + "LoginAct";
+        public static final String FETGET_PWD_ACT = APP_GROPE + "FetgetPwdAct";
+        public static final String REGISTER_ACT = APP_GROPE + "RegisterAct";
     }
     public class FmtConfig{
         public static final String MAIN_FMT=APP_GROPE+"MainFtm";

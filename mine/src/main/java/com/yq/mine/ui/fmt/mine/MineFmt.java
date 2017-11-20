@@ -1,11 +1,8 @@
-package com.yq.mine.ui.fmt;
+package com.yq.mine.ui.fmt.mine;
 
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.yq.base.ui.fmt.KitBaseFmt;
 import com.yq.mine.R;
