@@ -18,6 +18,9 @@ android {
         versionName rootProject.ext.android.versionName
         applicationId rootProject.ext.android.applicationId
 
+        resConfigs "zh","en"//指定只支持中文和英文（默认是支持国际化的）
+
+
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = [moduleName: project.getName()]
@@ -40,14 +43,18 @@ android {
             storePassword '20171110'
         }
     }
-    //制定包生成目录和文件名
+    //配置是否混淆和混淆文件和指定包生成目录和文件名
     buildTypes {
         debug {
+            //shrinkResources false //打包时删除无用的资源
             signingConfig signingConfigs.release
         }
         release {
-            signingConfig signingConfigs.release
-            minifyEnabled false
+            signingConfig signingConfigs.release//配置打包签名
+            minifyEnabled false//是否删除无用指令和方法
+            //shrinkResources true //打包时删除无用的资源
+            debuggable false//取消正式版本调试
+
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.outAPK
             applicationVariants.all { variant ->
@@ -73,19 +80,12 @@ android {
             flavor -> flavor.manifestPlaceholders = [NAME_VALUE: name]
         }
     }
-    //配置是否混淆和混淆文件
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
+
+
     //忽略重复文件
     packagingOptions {
         exclude 'META-INF/rxjava.properties'
     }
-
-
 }
 
 dependencies {
@@ -100,6 +100,5 @@ dependencies {
     annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
     compile project(':common')
     compile project(':mine')
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.android.support:support-v4:26.+'
+    debugCompile rootProject.ext.dependencies["debugDb"]
 }

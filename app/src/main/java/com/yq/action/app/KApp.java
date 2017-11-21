@@ -1,6 +1,10 @@
 package com.yq.action.app;
 
+import android.util.Log;
+
+import com.amitshekhar.DebugDB;
 import com.yq.base.app.KitBaseApp;
+import com.yq.base.common.cache.DataCleanManager;
 import com.yq.common.db.GreenDaoManager;
 
 /**
@@ -13,6 +17,13 @@ public class KApp extends KitBaseApp{
     public void onCreate() {
         super.onCreate();
         GreenDaoManager.getInstance();
+       Log.e("DebugDB",DebugDB.getAddressLog());
+        try {
+            Log.e("TotalCacheSize",DataCleanManager.getTotalCacheSize(this)+"");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
 }

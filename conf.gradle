@@ -38,7 +38,8 @@ ext {
             Vgreendao        :'3.2.2',
             Vtakephoto       :'4.0.3',
             Vappintro        :'v4.2.2',
-            VadapterRxjava  :'2.0.1'
+            VadapterRxjava   :'2.0.1',
+            VdebugDb         :'1.0.0'
 
     ]
 
@@ -121,5 +122,8 @@ ext {
                     "com.jph.takephoto:takephoto_library:${android["Vtakephoto"]}",
             "appintro"       :
                     "com.github.apl-devs:appintro:${android["Vappintro"]}",
+            "debugDb"       :
+                    "com.amitshekhar.android:debug-db:${android["VdebugDb"]}",
+
     ]
 }
