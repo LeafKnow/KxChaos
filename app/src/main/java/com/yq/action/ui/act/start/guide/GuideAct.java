@@ -2,6 +2,7 @@ package com.yq.action.ui.act.start.guide;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 
 import com.github.paolorotolo.appintro.AppIntro;
@@ -25,7 +26,15 @@ public class GuideAct extends AppIntro {
         addSlide(SampleSlide.newInstance(R.layout.yd_layout_two));
         addSlide(SampleSlide.newInstance(R.layout.yd_layout_three));
     }
-
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)
+    {
+        if (keyCode == KeyEvent.KEYCODE_BACK)
+        {
+                return false;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
     public void joinMain(View view){
         startActivity(new Intent(GuideAct.this, MainAct.class));
         GuideAct.this.finish();

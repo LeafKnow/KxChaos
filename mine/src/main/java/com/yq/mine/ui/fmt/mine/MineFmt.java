@@ -6,6 +6,7 @@ import android.view.View;
 
 import com.yq.base.ui.fmt.KitBaseFmt;
 import com.yq.mine.R;
+import com.yq.mine.ui.fmt.change.ChangePwdFmt;
 
 /**
  * 个人中心
@@ -26,6 +27,7 @@ public class MineFmt extends KitBaseFmt {
     protected void setTitleBar() {
         titleBar.setTitleMainText("");
         titleBar.setVisibility(View.GONE);
+
     }
 
     @Override

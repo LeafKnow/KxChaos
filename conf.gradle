@@ -39,7 +39,8 @@ ext {
             Vtakephoto       :'4.0.3',
             Vappintro        :'v4.2.2',
             VadapterRxjava   :'2.0.1',
-            VdebugDb         :'1.0.0'
+            VdebugDb         :'1.0.0',
+            Vutilcode        :'1.9.3',
 
     ]
 
@@ -58,7 +59,7 @@ ext {
                     "com.android.support:cardview-v7:${android["VSupportSdk"]}",
             "constraint-layout"    :
                     "com.android.support.constraint:constraint-layout:${android["VconstraintLayout"]}",
-            "rxlifecycle"    :
+            "rxlifecycle"    ://生命周期库
                     "com.trello:rxlifecycle:${android["vrxlifecycle"]}",
             "rxlifecycle-components"   :
                     "com.trello:rxlifecycle-components:${android["vrxlifecycle"]}",
@@ -84,19 +85,19 @@ ext {
 //                    "com.squareup.retrofit2:adapter-rxjava2:${android["vretrofit"]}",
             "converter-gson":
                     "com.squareup.retrofit2:converter-gson:${android["vretrofit"]}",
-            "eventbus"      :
+            "eventbus"      ://
                     "org.greenrobot:eventbus:${android["veventbus"]}",
-            "glide":
+            "glide"://图片加载库
                     "com.github.bumptech.glide:glide:${android["vglide"]}",
-            "butterknife":
+            "butterknife"://控件注解库
                     "com.jakewharton:butterknife:${android["vbutterknife"]}",
             "butterknife-compiler":
                     "com.jakewharton:butterknife-compiler:${android["vbutterknife"]}",
-            "logutils":
+            "logutils"://日志框架（包含SD卡生产日志）
                     "com.apkfuns.logutils:library:${android["vlogutils"]}",
             "log2file":
                     "com.apkfuns.log2file:log2file:${android["vlog2file"]}",
-            "arouter-api":
+            "arouter-api"://阿里路由库
                     "com.alibaba:arouter-api:${android["varouterApi"]}",
             "arouter-compiler":
                     "com.alibaba:arouter-compiler:${android["varouterCompiler"]}",
@@ -106,24 +107,25 @@ ext {
                     "io.reactivex.rxjava2:rxjava:${android["vrxjava"]}",
             "viseutils":
                     "com.vise.xiaoyaoyou:viseutils:${android["vViseutils"]}",
-            "multidex":
+            "multidex"://多dex生成库
                     "com.android.support:multidex:${android["vmultidex"]}",
-            "crashreport_upgrade":
+            "crashreport_upgrade"://bugly统计更新库
                     "com.tencent.bugly:crashreport_upgrade:${android["vcrashreportUpgrade"]}",
-            "sonic":
+            "sonic"://Hybrid 框架 VasSonic
                     "com.tencent.sonic:sdk:${android["vsonic"]}",
-            "vtitleBarview"     :
+            "vtitleBarview"     ://标题栏样式库（兼容白底黑字模式）
                     "com.github.AriesHoo:TitleBarView:${android["vtitleBarview"]}",
-            "AVLoading"     ://https://github.com/81813780/AVLoadingIndicatorView
+            "AVLoading"     ://加载状态样式库https://github.com/81813780/AVLoadingIndicatorView
                     "com.wang.avi:library:${android["AVLoading"]}",
-            "greendao"       :
+            "greendao"       ://数据库操作
                       "org.greenrobot:greendao:${android["Vgreendao"]}",
-            "takephoto"       :
+            "takephoto"       ://相机和相册相机库（兼容7.0）
                     "com.jph.takephoto:takephoto_library:${android["Vtakephoto"]}",
-            "appintro"       :
+            "appintro"       ://app引导界面框架库
                     "com.github.apl-devs:appintro:${android["Vappintro"]}",
-            "debugDb"       :
+            "debugDb"       ://数据库在浏览器中查看框架
                     "com.amitshekhar.android:debug-db:${android["VdebugDb"]}",
-
+            "utilcode"       ://Android常用工具类集成库
+                    "com.blankj:utilcode:${android["Vutilcode"]}",
     ]
 }

@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.jakewharton.butterknife'
+//apply plugin: 'com.antfortune.freeline'
 
 def buildTime() {
     def date = new Date();
@@ -69,6 +70,12 @@ android {
             }
         }
     }
+//    freeline {
+//        hack true
+//        //如果你定义了productFlavor, 记得把下面的注释放开, 把{Your-productFlavor}替换成你相应的productFlavor
+//        //productFlavor '{Your-productFlavor}'
+//    }
+
     //多渠道打包 (渠道号配置)
     productFlavors {
         show_01_chann {}
@@ -101,4 +108,5 @@ dependencies {
     compile project(':common')
     compile project(':mine')
     debugCompile rootProject.ext.dependencies["debugDb"]
+
 }

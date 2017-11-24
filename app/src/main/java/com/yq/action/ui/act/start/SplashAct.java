@@ -3,6 +3,7 @@ package com.yq.action.ui.act.start;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.KeyEvent;
 
 import com.yq.action.R;
 import com.yq.action.ui.act.main.MainAct;
@@ -82,7 +83,15 @@ public class SplashAct extends KitBaseAct {
     public void initPresenter() {
 
     }
-
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)
+    {
+        if (keyCode == KeyEvent.KEYCODE_BACK)
+        {
+            return false;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
     @Override
     protected void onDestroy() {
         if (null!=handler){

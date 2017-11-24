@@ -62,7 +62,9 @@ dependencies {
     compile rootProject.ext.dependencies["arouter-api"]
     //arouter
     annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
+    //加载状态控件库
     compile rootProject.ext.dependencies["AVLoading"]
+    //拍照和相册库
     compile rootProject.ext.dependencies["takephoto"]
     compile rootProject.ext.dependencies["greendao"]
     compile rootProject.ext.dependencies["eventbus"]
@@ -81,5 +83,7 @@ dependencies {
     compile rootProject.ext.dependencies["retrofit"]
     compile rootProject.ext.dependencies["adapter-rxjava"]
     compile rootProject.ext.dependencies["converter-gson"]
+    //工具类集合 https://blankj.com/2016/07/31/android-utils-code/
+    compile rootProject.ext.dependencies["utilcode"]
 
 }

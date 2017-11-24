@@ -1,6 +1,7 @@
 package com.yq.action.ui.fmt.main;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.yq.action.R;
 import com.yq.base.ui.fmt.KitBaseFmt;
@@ -21,6 +22,10 @@ import me.yokeyword.fragmentation.SupportFragment;
  */
 //@Route(path = RouteConfig.FmtConfig.MAIN_FMT)
 public class MainFtm extends KitBaseFmt {
+
+    // 再点一次退出程序时间设置
+    private static final long WAIT_TIME = 2000L;
+    private long TOUCH_TIME = 0;
     public static final int FIRST = 0;
     public static final int SECOND = 1;
     public static final int THIRD = 2;
@@ -123,5 +128,19 @@ public class MainFtm extends KitBaseFmt {
     public boolean eventRegister() {
         return true;
     }
-
+    /**
+     * 处理回退事件
+     *
+     * @return
+     */
+    @Override
+    public boolean onBackPressedSupport() {
+        if (System.currentTimeMillis() - TOUCH_TIME < WAIT_TIME) {
+            _mActivity.finish();
+        } else {
+            TOUCH_TIME = System.currentTimeMillis();
+            Toast.makeText(_mActivity, "再按一次退出", Toast.LENGTH_SHORT).show();
+        }
+        return true;
+    }
 }

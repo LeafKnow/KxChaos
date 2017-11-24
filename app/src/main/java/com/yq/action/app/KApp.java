@@ -16,6 +16,7 @@ public class KApp extends KitBaseApp{
     @Override
     public void onCreate() {
         super.onCreate();
+       // FreelineCore.init(this);
         GreenDaoManager.getInstance();
        Log.e("DebugDB",DebugDB.getAddressLog());
         try {

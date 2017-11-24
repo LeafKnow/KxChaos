@@ -71,7 +71,6 @@ public class AdvFmt extends KitBaseFmt<AdvPresenter,AdvModel> implements AdvCont
             handler.removeCallbacks(runnable);
             startActivity(new Intent(_mActivity, MainAct.class));
             _mActivity.finish();
-
         }
     };
     @Override

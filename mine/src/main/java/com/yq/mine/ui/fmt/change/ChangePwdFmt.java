@@ -5,7 +5,6 @@ import android.os.Bundle;
 
 import com.yq.base.ui.fmt.KitBaseFmt;
 import com.yq.mine.R;
-
 /**
  * 修改密码
  */
@@ -23,7 +22,7 @@ public class ChangePwdFmt<ChangePwdPresenter,ChangePwdModel> extends KitBaseFmt 
 
     @Override
     public void initPresenter() {
-
+     mPresenter.setVM(this,mModel,this._mActivity);
     }
 
     @Override
