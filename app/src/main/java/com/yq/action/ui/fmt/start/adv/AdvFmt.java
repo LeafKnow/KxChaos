@@ -83,4 +83,12 @@ public class AdvFmt extends KitBaseFmt<AdvPresenter,AdvModel> implements AdvCont
         return R.layout.fragment_adv_fmt;
     }
 
+    @Override
+    public void onDestroy() {
+        if (null!=handler){
+            handler.removeCallbacks(runnable);
+        }
+        handler=null;
+        super.onDestroy();
+    }
 }
