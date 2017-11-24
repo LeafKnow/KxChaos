@@ -62,15 +62,20 @@ public class AdvFmt extends KitBaseFmt<AdvPresenter,AdvModel> implements AdvCont
     }
 
     public void startMain(int time) {
-        handler=new Handler();
+        if (null==handler) {
+            handler = new Handler();
+        }
+        handler.removeCallbacks(runnable);
         handler.postDelayed(runnable, time);
     }
     Runnable runnable=new Runnable() {
         @Override
         public void run() {
             handler.removeCallbacks(runnable);
-            startActivity(new Intent(_mActivity, MainAct.class));
-            _mActivity.finish();
+            if (null!=_mActivity) {
+                startActivity(new Intent(_mActivity, MainAct.class));
+                _mActivity.finish();
+            }
         }
     };
     @Override

@@ -49,13 +49,17 @@ public class SplashAct extends KitBaseAct {
 
     }
     public void startMain(int time){
-        handler=new Handler();
+        if (null!=handler) {
+            handler = new Handler();
+        }
+        handler.removeCallbacks(mRunnable);
         handler.postDelayed(mRunnable,time);
     }
     Runnable mRunnable=new Runnable() {
         @Override
         public void run() {
             startActivity(new Intent(SplashAct.this, MainAct.class));
+            overridePendingTransition(R.anim.screen_zoom_in, R.anim.screen_zoom_out);
             SplashAct.this.finish();
         }
     };

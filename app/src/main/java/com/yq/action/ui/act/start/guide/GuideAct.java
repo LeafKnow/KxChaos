@@ -37,6 +37,7 @@ public class GuideAct extends AppIntro {
     }
     public void joinMain(View view){
         startActivity(new Intent(GuideAct.this, MainAct.class));
+        overridePendingTransition(R.anim.screen_zoom_in, R.anim.screen_zoom_out);
         GuideAct.this.finish();
     }
 }
