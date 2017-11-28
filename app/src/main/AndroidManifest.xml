@@ -25,6 +25,7 @@
         </activity>
         <activity
             android:name=".ui.act.main.MainAct"
+            android:launchMode="singleTask"
             android:label="@string/title_activity_main" />
         <activity
             android:name=".ui.act.start.guide.GuideAct"

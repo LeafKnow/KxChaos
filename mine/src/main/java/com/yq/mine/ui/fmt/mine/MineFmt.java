@@ -4,13 +4,16 @@ package com.yq.mine.ui.fmt.mine;
 import android.os.Bundle;
 import android.view.View;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.yq.base.ui.fmt.KitBaseFmt;
+import com.yq.common.config.RouteConfig;
 import com.yq.mine.R;
 import com.yq.mine.ui.fmt.change.ChangePwdFmt;
 
 /**
  * 个人中心
  */
+@Route(path = RouteConfig.FmtConfig.MAIN_FMT)
 public class MineFmt extends KitBaseFmt {
 
 
