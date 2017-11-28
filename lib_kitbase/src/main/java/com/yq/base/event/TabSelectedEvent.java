@@ -1,4 +1,4 @@
-package com.yq.common.event;
+package com.yq.base.event;
 
 /**
  * Created by YoKeyword on 16/6/5.

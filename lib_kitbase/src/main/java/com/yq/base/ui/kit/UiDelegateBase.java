@@ -13,6 +13,8 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.aries.ui.util.RomUtil;
 import com.jakewharton.rxbinding.view.RxView;
 import com.yq.base.common.camera.OpenPhoto;
+import com.yq.base.event.StartBrotherEvent;
+import com.yq.base.ui.fmt.KitBaseFmt;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -119,6 +121,12 @@ public class UiDelegateBase implements UiDelegate {
     @Override
     public void startAct(String path) {
         ARouter.getInstance().build(path).navigation();
+    }
+
+    @Override
+    public void startFmt(String path) {
+       KitBaseFmt k= (KitBaseFmt) ARouter.getInstance().build(path).navigation();
+       EventBus.getDefault().post(new StartBrotherEvent(k));
     }
 
     @Override

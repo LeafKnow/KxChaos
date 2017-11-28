@@ -34,6 +34,7 @@ public interface UiDelegate {
     void showProgressDialog(String msg);
     void dismissProgressDialog();
     void startAct(String path);
+    void startFmt(String path);
     void onCreate(@Nullable Bundle savedInstanceState);
     void onSaveInstanceState(Bundle outState);
     OpenPhoto getOpenPhoto();

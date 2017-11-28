@@ -1,4 +1,4 @@
-package com.yq.common.event;
+package com.yq.base.event;
 
 import me.yokeyword.fragmentation.SupportFragment;
 

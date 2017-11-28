@@ -9,9 +9,9 @@ import android.support.annotation.Nullable;
 import android.view.View;
 
 import com.aries.ui.view.title.TitleBarView;
+import com.blankj.utilcode.util.ActivityUtils;
 import com.jph.takephoto.model.TResult;
 import com.yq.base.R;
-import com.yq.base.common.AppManager;
 import com.yq.base.common.camera.OpenPhoto;
 import com.yq.base.ui.kit.UiCallback;
 import com.yq.base.ui.kit.UiDelegate;
@@ -68,8 +68,8 @@ public abstract class KitBaseAct<T extends BasePresenter, E extends BaseModel> e
         }
         initPresenter();
         setSwipeBackEnable(false);
-        AppManager.getAppManager().addActivity(this);
-    }
+        ActivityUtils.getActivityList().add(this);
+}
 
     @Override
     public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
@@ -144,7 +144,7 @@ public abstract class KitBaseAct<T extends BasePresenter, E extends BaseModel> e
         if (null != mPresenter) {
             mPresenter.onDestroy();
         }
-        AppManager.getAppManager().finishActivity(this);
+        ActivityUtils.getActivityList().remove(this);
     }
 
     @Override

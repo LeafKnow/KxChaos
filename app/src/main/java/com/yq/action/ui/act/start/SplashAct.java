@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.KeyEvent;
 
+import com.blankj.utilcode.util.ActivityUtils;
 import com.yq.action.R;
 import com.yq.action.ui.act.main.MainAct;
 import com.yq.action.ui.act.start.guide.GuideAct;
@@ -29,17 +30,17 @@ public class SplashAct extends KitBaseAct {
     public void initData(Bundle savedInstanceState) {
 
         if (SystemCount.getSystemDao().loadAll().size()>0){//启动主界面 判断是否第一次开启app
-            if (SpAdv.getAdvCache(SplashAct.this)){//判断是否有广告缓存
+            if (SpAdv.getAdvCache()){//判断是否有广告缓存
                 //加载广告
                 loadRootFragment(R.id.fl_adv_container, AdvFmt.newInstance());
             }else {//进入主界面
                 startMain(3000);
             }
         }else {
-            SpAdv.setAdvCache(this,true);
+            SpAdv.setAdvCache(true);
             //启动引导界面
-            startActivity(new Intent(SplashAct.this,GuideAct.class));
-            SplashAct.this.finish();
+            ActivityUtils.startActivity(new Intent(SplashAct.this,GuideAct.class));
+            ActivityUtils.finishActivity(SplashAct.this);
         }
         startCount();
     }
@@ -49,7 +50,7 @@ public class SplashAct extends KitBaseAct {
 
     }
     public void startMain(int time){
-        if (null!=handler) {
+        if (null==handler) {
             handler = new Handler();
         }
         handler.removeCallbacks(mRunnable);
@@ -58,9 +59,9 @@ public class SplashAct extends KitBaseAct {
     Runnable mRunnable=new Runnable() {
         @Override
         public void run() {
-            startActivity(new Intent(SplashAct.this, MainAct.class));
+            ActivityUtils.startActivity(new Intent(SplashAct.this, MainAct.class));
             overridePendingTransition(R.anim.screen_zoom_in, R.anim.screen_zoom_out);
-            SplashAct.this.finish();
+            ActivityUtils.finishActivity(SplashAct.this);
         }
     };
     public void startCount(){

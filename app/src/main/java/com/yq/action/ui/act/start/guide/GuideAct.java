@@ -5,9 +5,11 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 
+import com.blankj.utilcode.util.ActivityUtils;
 import com.github.paolorotolo.appintro.AppIntro;
 import com.yq.action.R;
 import com.yq.action.ui.act.main.MainAct;
+import com.yq.action.ui.act.start.SplashAct;
 import com.yq.action.ui.fmt.start.guide.SampleSlide;
 
 /**
@@ -36,8 +38,8 @@ public class GuideAct extends AppIntro {
         return super.onKeyDown(keyCode, event);
     }
     public void joinMain(View view){
-        startActivity(new Intent(GuideAct.this, MainAct.class));
+        ActivityUtils.startActivity(new Intent(GuideAct.this, MainAct.class));
         overridePendingTransition(R.anim.screen_zoom_in, R.anim.screen_zoom_out);
-        GuideAct.this.finish();
+        ActivityUtils.finishActivity(GuideAct.this);
     }
 }

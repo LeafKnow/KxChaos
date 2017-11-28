@@ -1,15 +1,14 @@
 package com.yq.action.ui.fmt.main;
 
 import android.os.Bundle;
-import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.alibaba.android.arouter.launcher.ARouter;
+import com.blankj.utilcode.util.ToastUtils;
 import com.yq.action.R;
+import com.yq.base.event.StartBrotherEvent;
+import com.yq.base.event.TabSelectedEvent;
 import com.yq.base.ui.fmt.KitBaseFmt;
 import com.yq.common.config.RouteConfig;
-import com.yq.common.event.StartBrotherEvent;
-import com.yq.common.event.TabSelectedEvent;
 import com.yq.common.widget.BottomBar;
 import com.yq.common.widget.BottomBarTab;
 import com.yq.mine.ui.fmt.mine.MineFmt;
@@ -142,7 +141,7 @@ public class MainFtm extends KitBaseFmt {
             _mActivity.finish();
         } else {
             TOUCH_TIME = System.currentTimeMillis();
-            Toast.makeText(_mActivity, "再按一次退出", Toast.LENGTH_SHORT).show();
+            ToastUtils.showShort("再按一次退出");
         }
         return true;
     }

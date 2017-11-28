@@ -1,14 +1,12 @@
 package com.yq.networke.manager;
 
 import android.support.annotation.NonNull;
-import android.text.TextUtils;
 
 import com.apkfuns.logutils.LogUtils;
+import com.blankj.utilcode.util.NetworkUtils;
 import com.yq.base.app.KitBaseApp;
-import com.yq.base.common.networke.NetWorkUtils;
 import com.yq.base.common.string.StringUtils;
 import com.yq.networke.manager.url.RetrofitUrlManager;
-
 
 import java.io.File;
 import java.io.IOException;
@@ -137,7 +135,7 @@ public enum RetrofitManager {
         @Override
         public Response intercept(Chain chain) throws IOException {
             Request request = chain.request();
-            if (!NetWorkUtils.isConnectNet(KitBaseApp.getContext())) {
+            if (!NetworkUtils.isConnected()) {
                 request = request.newBuilder().cacheControl(CacheControl.FORCE_CACHE).build();
                 LogUtils.e("no network");
             }
@@ -145,7 +143,7 @@ public enum RetrofitManager {
 
             mCookies = originalResponse.header("Set-Cookie");
             String authorization = getNativeToken();
-            if (NetWorkUtils.isConnectNet(KitBaseApp.getContext())) {
+            if (NetworkUtils.isConnected()) {
                 //有网的时候读接口上的@Headers里的配置，你可以在这里进行统一的设置
                 String cacheControl = request.cacheControl().toString();
                 if (mCookies != null) {
@@ -261,7 +259,7 @@ public enum RetrofitManager {
      */
     @NonNull
     public String getCacheControl() {
-        return NetWorkUtils.isConnectNet(KitBaseApp.getContext()) ? CACHE_CONTROL_NETWORK : CACHE_CONTROL_CACHE;
+        return NetworkUtils.isConnected() ? CACHE_CONTROL_NETWORK : CACHE_CONTROL_CACHE;
     }
 
 

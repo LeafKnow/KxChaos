@@ -26,3 +26,7 @@
 
 #arouter路由混淆配置
 #-keep public class com.alibaba.android.arouter.routes.**{*;}
+# 工具类混淆类
+#-keep class com.blankj.utilcode.** { *; }
+#-keepclassmembers class com.blankj.utilcode.** { *; }
+#-dontwarn com.blankj.utilcode.**
