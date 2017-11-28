@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.yq.action.R;
 import com.yq.base.ui.fmt.KitBaseFmt;
 import com.yq.common.config.RouteConfig;

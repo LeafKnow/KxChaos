@@ -1,0 +1,91 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    //android 支持
+
+   // compile rootProject.ext.dependencies["support-v4"]
+    compile rootProject.ext.dependencies["appcompat-v7"]
+    compile rootProject.ext.dependencies["design"]
+    compile rootProject.ext.dependencies["cardview-v7"]
+    compile rootProject.ext.dependencies["annotations"]
+    compile rootProject.ext.dependencies["recyclerview-v7"]
+    compile rootProject.ext.dependencies["constraint-layout"]
+
+    //请求生命周期管理
+    compile rootProject.ext.dependencies["rxlifecycle"]
+    compile rootProject.ext.dependencies["rxlifecycle-components"]
+    //控件事件处理 如：控件防抖动
+    // Platform bindings:
+    compile rootProject.ext.dependencies["rxbinding"]
+    // 'support-v4' library bindings:
+    // compile rootProject.ext.dependencies["rxbinding-support-v4"]
+    //'appcompat-v7' library bindings:
+    //compile rootProject.ext.dependencies["rxbinding-appcompat-v7"]
+    //'recyclerview-v7' library bindings:
+    // compile rootProject.ext.dependencies["rxbinding-recyclerview-v7"]
+
+    compile rootProject.ext.dependencies["rxandroid2"]
+    compile rootProject.ext.dependencies["rxjava2"]
+    compile rootProject.ext.dependencies["vtitleBarview"]
+
+    //butterknife
+    compile rootProject.ext.dependencies["butterknife"]
+    // arouter 替换成最新版本, 需要注意的是api
+    // 要与compiler匹配使用，均使用最新版可以保证兼容
+    compile rootProject.ext.dependencies["arouter-api"]
+    //arouter
+    annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
+    //加载状态控件库
+    compile rootProject.ext.dependencies["AVLoading"]
+    //拍照和相册库
+    compile rootProject.ext.dependencies["takephoto"]
+    compile rootProject.ext.dependencies["greendao"]
+    compile rootProject.ext.dependencies["eventbus"]
+    //logutils
+    compile rootProject.ext.dependencies["logutils"]
+    //引导控件
+    compile rootProject.ext.dependencies["appintro"]
+    //网络请求
+    //okHttp
+    compile rootProject.ext.dependencies["okhttp"]
+
+    //okHtpp 日志拦截器
+    compile rootProject.ext.dependencies["logging-interceptor"]
+
+    //retrofit
+    compile rootProject.ext.dependencies["retrofit"]
+    compile rootProject.ext.dependencies["adapter-rxjava"]
+    compile rootProject.ext.dependencies["converter-gson"]
+    //工具类集合 https://blankj.com/2016/07/31/android-utils-code/
+    compile rootProject.ext.dependencies["utilcode"]
+    compile rootProject.ext.dependencies["constraint-layout"]
+
+
+}
