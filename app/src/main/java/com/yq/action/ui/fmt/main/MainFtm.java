@@ -3,8 +3,10 @@ package com.yq.action.ui.fmt.main;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.yq.action.R;
 import com.yq.base.ui.fmt.KitBaseFmt;
+import com.yq.common.config.RouteConfig;
 import com.yq.common.event.StartBrotherEvent;
 import com.yq.common.event.TabSelectedEvent;
 import com.yq.common.widget.BottomBar;
@@ -20,7 +22,7 @@ import me.yokeyword.fragmentation.SupportFragment;
 /**
  * 主 FTM
  */
-//@Route(path = RouteConfig.FmtConfig.MAIN_FMT)
+@Route(path = RouteConfig.FmtConfig.MAIN_FMT)
 public class MainFtm extends KitBaseFmt {
 
     // 再点一次退出程序时间设置

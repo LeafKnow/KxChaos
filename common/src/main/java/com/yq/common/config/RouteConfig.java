@@ -17,5 +17,6 @@ public class RouteConfig {
     }
     public class FmtConfig{
         public static final String MAIN_FMT=APP_FMT_GROPE+"/MainFtm";
+        public static final String MINE_FMT=APP_FMT_GROPE+"/MineFtm";
     }
 }

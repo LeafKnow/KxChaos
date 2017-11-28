@@ -13,7 +13,7 @@ import com.yq.mine.ui.fmt.change.ChangePwdFmt;
 /**
  * 个人中心
  */
-@Route(path = RouteConfig.FmtConfig.MAIN_FMT)
+@Route(path = RouteConfig.FmtConfig.MINE_FMT)
 public class MineFmt extends KitBaseFmt {
 
 
