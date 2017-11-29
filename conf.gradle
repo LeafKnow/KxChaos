@@ -39,7 +39,7 @@ ext {
             Vtakephoto       :'4.0.3',
             Vappintro        :'v4.2.2',
             VadapterRxjava   :'2.0.1',
-            VdebugDb         :'1.0.0',
+            VdebugDb         :'1.0.1',
             Vutilcode        :'1.9.3',
 
     ]
@@ -123,9 +123,9 @@ ext {
                     "com.jph.takephoto:takephoto_library:${android["Vtakephoto"]}",
             "appintro"       ://app引导界面框架库
                     "com.github.apl-devs:appintro:${android["Vappintro"]}",
-            "debugDb"       ://数据库在浏览器中查看框架
+            "debugDb"        ://数据库在浏览器中查看框架
                     "com.amitshekhar.android:debug-db:${android["VdebugDb"]}",
-            "utilcode"       ://Android常用工具类集成库
+            "utilcode"       ://Android常用工具集成库
                     "com.blankj:utilcode:${android["Vutilcode"]}",
     ]
 }

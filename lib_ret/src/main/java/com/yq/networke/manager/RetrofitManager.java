@@ -2,7 +2,7 @@ package com.yq.networke.manager;
 
 import android.support.annotation.NonNull;
 
-import com.apkfuns.logutils.LogUtils;
+import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.NetworkUtils;
 import com.yq.base.app.KitBaseApp;
 import com.yq.base.common.string.StringUtils;
@@ -221,7 +221,7 @@ public enum RetrofitManager {
                 try {
                     LogUtils.json(buffer.clone().readString(charset));
                 } catch (Exception e) {
-                    LogUtils.wtf(e);
+                    LogUtils.e(e);
                 }
                 LogUtils.v("--------------------------------------------结束打印返回数据----------------------------------------------------");
             }

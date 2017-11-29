@@ -103,7 +103,7 @@ public abstract class KitBaseAct<T extends BasePresenter, E extends BaseModel> e
         }
         type = titleBar.getStatusBarModeType();
         if (type <= 0) {//无法设置白底黑字
-            titleBar.setStatusAlpha(102);//5.0 半透明模式alpha-102
+            titleBar.setStatusAlpha(50);//5.0 半透明模式alpha-102
         }
         setTitleBar();
         titleBar.setOnLeftTextClickListener(new View.OnClickListener() {

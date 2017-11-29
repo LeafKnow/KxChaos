@@ -69,7 +69,7 @@ dependencies {
     compile rootProject.ext.dependencies["greendao"]
     compile rootProject.ext.dependencies["eventbus"]
     //logutils
-    compile rootProject.ext.dependencies["logutils"]
+//    compile rootProject.ext.dependencies["logutils"]
     //引导控件
     compile rootProject.ext.dependencies["appintro"]
     //网络请求

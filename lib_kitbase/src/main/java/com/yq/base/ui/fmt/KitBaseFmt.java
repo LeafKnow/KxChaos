@@ -121,7 +121,7 @@ public abstract class KitBaseFmt<T extends BasePresenter, E extends BaseModel> e
         }
         type = titleBar.getStatusBarModeType();
         if (type <= 0) {//无法设置白底黑字
-            titleBar.setStatusAlpha(102);//5.0 半透明模式alpha-102
+            titleBar.setStatusAlpha(30);//5.0 半透明模式alpha-102
         }
 //        titleBar.setTitleMainText(this.getClass().getSimpleName());
         setTitleBar();
