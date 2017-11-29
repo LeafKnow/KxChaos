@@ -10,8 +10,8 @@ import com.yq.mine.R;
 /**
  * 修改密码
  */
-@Route(path = RouteConfig.FmtConfig.ChangePwd_FMT)
-public class ChangePwdFmt<ChangePwdPresenter,ChangePwdModel> extends KitBaseFmt implements ChangePwdContract.View{
+@Route(path = RouteConfig.FmtConfig.CHANGE_PWD_FMT)
+public class ChangePwdFmt extends KitBaseFmt implements ChangePwdContract.View{
 
 
     public ChangePwdFmt() {

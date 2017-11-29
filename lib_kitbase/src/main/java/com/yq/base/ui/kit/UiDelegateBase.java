@@ -6,6 +6,7 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.View;
 import android.widget.Toast;
 
@@ -20,11 +21,12 @@ import org.greenrobot.eventbus.EventBus;
 
 import java.util.concurrent.TimeUnit;
 
+import me.yokeyword.fragmentation.SupportFragment;
 import rx.Observable;
 
 
 /**
- * Created by wanglei on 2016/12/1.
+ * Created by njh on 2016/12/1.
  */
 
 public class UiDelegateBase implements UiDelegate {
@@ -125,7 +127,7 @@ public class UiDelegateBase implements UiDelegate {
 
     @Override
     public void startFmt(String path) {
-       KitBaseFmt k= (KitBaseFmt) ARouter.getInstance().build(path).navigation();
+        SupportFragment k = (SupportFragment) ARouter.getInstance().build(path).navigation();
        EventBus.getDefault().post(new StartBrotherEvent(k));
     }
 

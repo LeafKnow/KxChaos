@@ -97,9 +97,7 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-//    //butterknife
-//    compile rootProject.ext.dependencies["butterknife"]
-    annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
+
     if (isModule.toBoolean()) {
         compile project(':lib_common')
     }else {
@@ -107,4 +105,9 @@ dependencies {
     }
 
     debugCompile rootProject.ext.dependencies["debugDb"]
+    //    //butterknife
+//    compile rootProject.ext.dependencies["butterknife"]
+    annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
+    //arouter
+   // annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
 }
