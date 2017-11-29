@@ -36,6 +36,7 @@ public class MineFmt extends KitBaseFmt {
 
     @Override
     protected void setTitleBar() {
+
     }
 
     @Override

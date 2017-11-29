@@ -105,7 +105,6 @@ public abstract class KitBaseAct<T extends BasePresenter, E extends BaseModel> e
         if (type <= 0) {//无法设置白底黑字
             titleBar.setStatusAlpha(102);//5.0 半透明模式alpha-102
         }
-        titleBar.setTitleMainText(this.getClass().getSimpleName());
         setTitleBar();
         titleBar.setOnLeftTextClickListener(new View.OnClickListener() {
             @Override

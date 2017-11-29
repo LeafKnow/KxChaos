@@ -75,6 +75,8 @@ public abstract class KitBaseFmt<T extends BasePresenter, E extends BaseModel> e
                 viewGroup.removeView(rootView);
             }
         }
+        unbinder = ButterKnife.bind(this,rootView);
+        initTitle();
         return rootView;
     }
 
@@ -82,8 +84,6 @@ public abstract class KitBaseFmt<T extends BasePresenter, E extends BaseModel> e
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        unbinder = ButterKnife.bind(this,rootView);
-        initTitle();
         initData(savedInstanceState);
         setListener();
         setSwipeBackEnable(false);
@@ -115,7 +115,7 @@ public abstract class KitBaseFmt<T extends BasePresenter, E extends BaseModel> e
         super.onActivityResult(requestCode, resultCode, data);
     }
     protected void initTitle() {
-        titleBar = _mActivity.findViewById(R.id.titleBar);
+        titleBar = rootView.findViewById(R.id.titleBar);
         if (titleBar == null) {
             return;
         }
@@ -123,8 +123,7 @@ public abstract class KitBaseFmt<T extends BasePresenter, E extends BaseModel> e
         if (type <= 0) {//无法设置白底黑字
             titleBar.setStatusAlpha(102);//5.0 半透明模式alpha-102
         }
-        titleBar.setStatusAlpha(10);
-        titleBar.setTitleMainText(this.getClass().getSimpleName());
+//        titleBar.setTitleMainText(this.getClass().getSimpleName());
         setTitleBar();
         titleBar.setOnLeftTextClickListener(new View.OnClickListener() {
             @Override

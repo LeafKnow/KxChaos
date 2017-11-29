@@ -82,8 +82,8 @@ public class MainFtm extends KitBaseFmt {
             mFragments[THIRD] = findChildFragment(MineFmt.class);
         }
         btnbar.addItem(new BottomBarTab(_mActivity, R.drawable.ic_message_white_24dp,R.drawable.ic_message_white_24dp,"首页"))
-                .addItem(new BottomBarTab(_mActivity, R.drawable.ic_account_circle_white_24dp,R.drawable.ic_message_white_24dp, "首页"))
-                .addItem(new BottomBarTab(_mActivity, R.drawable.ic_discover_white_24dp,R.drawable.ic_message_white_24dp, "首页"));
+                .addItem(new BottomBarTab(_mActivity, R.drawable.ic_account_circle_white_24dp,R.drawable.ic_message_white_24dp, "聊天"))
+                .addItem(new BottomBarTab(_mActivity, R.drawable.ic_discover_white_24dp,R.drawable.ic_message_white_24dp, "个人"));
 
         // 模拟未读消息
         btnbar.getItem(FIRST).setUnreadCount(-1);
