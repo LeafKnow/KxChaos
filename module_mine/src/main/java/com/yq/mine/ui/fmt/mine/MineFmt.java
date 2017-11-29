@@ -36,9 +36,6 @@ public class MineFmt extends KitBaseFmt {
 
     @Override
     protected void setTitleBar() {
-        titleBar.setTitleMainText("");
-        titleBar.setVisibility(View.GONE);
-
     }
 
     @Override
@@ -63,7 +60,7 @@ public class MineFmt extends KitBaseFmt {
 
 
     public void openChangePwd() {
-        getUiDelegate().startFmt(RouteConfig.FmtConfig.ChangePwd_FMT);
+        getUiDelegate().startFmt(RouteConfig.FmtConfig.CHANGE_PWD_FMT);
     }
 
     @Override

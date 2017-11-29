@@ -27,6 +27,8 @@ android {
                 arguments = [moduleName: project.getName()]
             }
         }
+        // Enabling multidex support.
+        multiDexEnabled true
     }
 
     //签名打包配置
@@ -110,4 +112,6 @@ dependencies {
     annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
     //arouter
    // annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
+    compile project(path: ':module_home')
+    compile project(path: ':module_chat')
 }

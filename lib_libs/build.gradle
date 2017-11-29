@@ -86,6 +86,7 @@ dependencies {
     //工具类集合 https://blankj.com/2016/07/31/android-utils-code/
     compile rootProject.ext.dependencies["utilcode"]
     compile rootProject.ext.dependencies["constraint-layout"]
-
+    //dex 65k
+    compile rootProject.ext.dependencies["multidex"]
 
 }

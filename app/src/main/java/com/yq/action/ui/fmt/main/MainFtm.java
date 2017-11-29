@@ -8,9 +8,11 @@ import com.yq.action.R;
 import com.yq.base.event.StartBrotherEvent;
 import com.yq.base.event.TabSelectedEvent;
 import com.yq.base.ui.fmt.KitBaseFmt;
+import com.yq.chat.ChatFmt;
 import com.yq.common.config.RouteConfig;
 import com.yq.common.widget.BottomBar;
 import com.yq.common.widget.BottomBarTab;
+import com.yq.home.ui.fmt.HomeFmt;
 import com.yq.mine.ui.fmt.mine.MineFmt;
 
 import org.greenrobot.eventbus.EventBus;
@@ -61,10 +63,10 @@ public class MainFtm extends KitBaseFmt {
 
     @Override
     public void initData(Bundle savedInstanceState) {
-        SupportFragment firstFragment = findChildFragment(MineFmt.class);
+        SupportFragment firstFragment = findChildFragment(HomeFmt.class);
         if (firstFragment == null) {
-            mFragments[FIRST] = MineFmt.newInstance();
-            mFragments[SECOND] = MineFmt.newInstance();
+            mFragments[FIRST] = HomeFmt.newInstance();
+            mFragments[SECOND] = ChatFmt.newInstance();
             mFragments[THIRD] = MineFmt.newInstance();
 
             loadMultipleRootFragment(R.id.fl_tab_container, FIRST,
@@ -76,7 +78,7 @@ public class MainFtm extends KitBaseFmt {
 
             // 这里我们需要拿到mFragments的引用,也可以通过getChildFragmentManager.findFragmentByTag自行进行判断查找(效率更高些),用下面的方法查找更方便些
             mFragments[FIRST] = firstFragment;
-            mFragments[SECOND] = findChildFragment(MineFmt.class);
+            mFragments[SECOND] = findChildFragment(ChatFmt.class);
             mFragments[THIRD] = findChildFragment(MineFmt.class);
         }
         btnbar.addItem(new BottomBarTab(_mActivity, R.drawable.ic_message_white_24dp,R.drawable.ic_message_white_24dp,"首页"))

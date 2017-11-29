@@ -95,7 +95,7 @@ public class FragmentationHack {
     }
 
     @SuppressWarnings("unchecked")
-    private static List<Fragment> getActiveList(ArrayList<Fragment> active) {
+    private static List<Fragment> getActiveList(SparseArray<Fragment> active) {
         if (active == null) {
             return Collections.EMPTY_LIST;
         }
