@@ -52,8 +52,10 @@ public abstract class KitBaseAct<T extends BasePresenter, E extends BaseModel> e
         if (getLayoutId() > 0) {
             setContentView(getLayoutId());
             unbinder = ButterKnife.bind(this);
-            mPresenter = TUtil.getT(this, 0);
-            mModel = TUtil.getT(this, 1);
+            TUtil<BasePresenter> tUtil=new TUtil<>();
+            mPresenter = tUtil.getT(this, 0);
+            TUtil<BaseModel> tUtil1=new TUtil<>();
+            mModel = tUtil1.getT(this, 1);
         }
         if (eventRegister()){
             EventBus.getDefault().register(this);

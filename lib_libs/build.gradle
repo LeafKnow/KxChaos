@@ -81,7 +81,7 @@ dependencies {
 
     //retrofit
     compile rootProject.ext.dependencies["retrofit"]
-    compile rootProject.ext.dependencies["adapter-rxjava"]
+    compile rootProject.ext.dependencies["adapter-rxjava2"]
     compile rootProject.ext.dependencies["converter-gson"]
     //工具类集合 https://blankj.com/2016/07/31/android-utils-code/
     compile rootProject.ext.dependencies["utilcode"]

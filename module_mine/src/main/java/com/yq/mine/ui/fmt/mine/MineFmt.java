@@ -2,6 +2,7 @@ package com.yq.mine.ui.fmt.mine;
 
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -10,8 +11,17 @@ import com.yq.base.ui.fmt.KitBaseFmt;
 import com.yq.common.config.RouteConfig;
 import com.yq.mine.R;
 import com.yq.mine.R2;
+import com.yq.networke.api.ApiService;
+import com.yq.networke.manager.RxSchedulers;
+import com.yq.networke.manager.ServiceManager;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import butterknife.BindView;
+import io.reactivex.Observable;
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 import rx.functions.Action1;
 
 /**
@@ -46,7 +56,32 @@ public class MineFmt extends KitBaseFmt {
 
     @Override
     public void initData(Bundle savedInstanceState) {
+        Map<String,String> parm= new HashMap<>();
+        parm.put("city","北京");
+        Observable observable= ServiceManager.create(ApiService.class)
+                .get("http://www.sojson.com/open/api/weather/json.shtml",parm)
+                .compose(RxSchedulers.io_main());
+        observable.subscribe(new Observer<String>() {
+            @Override
+            public void onSubscribe(Disposable d) {
 
+            }
+
+            @Override
+            public void onNext(String value) {
+                Log.e("onNext","onNext");
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                Log.e("onError",e.getMessage());
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
     }
 
     @Override

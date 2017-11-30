@@ -20,7 +20,7 @@ public class ServiceManager {
 
         return (T) service;
     }
-    public <T> T defCreate(){
+    public static <T> T defCreate(){
         return (T) create(ApiService.class);
     }
 }

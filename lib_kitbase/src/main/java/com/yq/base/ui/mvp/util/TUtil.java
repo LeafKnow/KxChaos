@@ -5,8 +5,8 @@ import java.lang.reflect.ParameterizedType;
 /**
  * Created by baixiaokang on 16/4/30.
  */
-public class TUtil {
-    public static <T> T getT(Object o, int i) {
+public class TUtil<T> {
+    public  <T> T getT(Object o, int i) {
         try {
             return ((Class<T>) ((ParameterizedType) (o.getClass()
                     .getGenericSuperclass())).getActualTypeArguments()[i])

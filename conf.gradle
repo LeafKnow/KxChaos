@@ -77,12 +77,12 @@ ext {
                     "com.squareup.okhttp3:okhttp:${android["vokhttp"]}",
             "logging-interceptor"      :
                     "com.squareup.okhttp3:logging-interceptor:${android["vokhttp"]}",
-            "adapter-rxjava"      :
-                    "com.squareup.retrofit2:adapter-rxjava:${android["VadapterRxjava"]}",
+//            "adapter-rxjava"      :
+//                    "com.squareup.retrofit2:adapter-rxjava:${android["VadapterRxjava"]}",
             "retrofit"      :
                     "com.squareup.retrofit2:retrofit:${android["vretrofit"]}",
-//            "adapter-rxjava2":
-//                    "com.squareup.retrofit2:adapter-rxjava2:${android["vretrofit"]}",
+            "adapter-rxjava2":
+                    "com.squareup.retrofit2:adapter-rxjava2:${android["vretrofit"]}",
             "converter-gson":
                     "com.squareup.retrofit2:converter-gson:${android["vretrofit"]}",
             "eventbus"      ://
@@ -113,13 +113,13 @@ ext {
                     "com.tencent.bugly:crashreport_upgrade:${android["vcrashreportUpgrade"]}",
             "sonic"://Hybrid 框架 VasSonic
                     "com.tencent.sonic:sdk:${android["vsonic"]}",
-            "vtitleBarview"     ://标题栏样式库（兼容白底黑字模式）
+            "vtitleBarview"     ://标题栏样式库（兼容白底黑字模式(部分机型无法兼容如努比亚)）
                     "com.github.AriesHoo:TitleBarView:${android["vtitleBarview"]}",
-            "AVLoading"     ://加载状态样式库https://github.com/81813780/AVLoadingIndicatorView
+            "AVLoading"      ://加载状态样式库https://github.com/81813780/AVLoadingIndicatorView
                     "com.wang.avi:library:${android["AVLoading"]}",
             "greendao"       ://数据库操作
                       "org.greenrobot:greendao:${android["Vgreendao"]}",
-            "takephoto"       ://相机和相册相机库（兼容7.0）
+            "takephoto"      ://相机和相册相机库（兼容7.0）
                     "com.jph.takephoto:takephoto_library:${android["Vtakephoto"]}",
             "appintro"       ://app引导界面框架库
                     "com.github.apl-devs:appintro:${android["Vappintro"]}",

@@ -66,8 +66,10 @@ public abstract class KitBaseFmt<T extends BasePresenter, E extends BaseModel> e
 
         if (rootView == null) {
             rootView = inflater.inflate(getLayoutId(), null);
-            mPresenter = TUtil.getT(this, 0);
-            mModel = TUtil.getT(this, 1);
+            TUtil<BasePresenter> tUtil=new TUtil<>();
+            mPresenter = tUtil.getT(this, 0);
+            TUtil<BaseModel> tUtil1=new TUtil<>();
+            mModel = tUtil1.getT(this, 1);
             initPresenter();
         } else {
             ViewGroup viewGroup = (ViewGroup) rootView.getParent();

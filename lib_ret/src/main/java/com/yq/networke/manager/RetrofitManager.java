@@ -25,7 +25,7 @@ import okhttp3.ResponseBody;
 import okio.Buffer;
 import okio.BufferedSource;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 
@@ -56,7 +56,7 @@ public enum RetrofitManager {
             initOkHttpClient();
             mRetrofit = new Retrofit.Builder().baseUrl(baseUrl).client(mOkHttpClient)
                     .addConverterFactory(GsonConverterFactory.create())
-                    .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .build();
         }
         return mRetrofit;
@@ -119,7 +119,7 @@ public enum RetrofitManager {
      * @return
      */
     public String getNativeToken() {
-        String authorization = null;
+        String authorization = "";
 //        if (SPUserInfo.getIsLogin(KitBaseApp.getContext())) {
 //            if (!TextUtils.isEmpty(SPUserInfo.getToken(KitBaseApp.getContext()))) {
 //                authorization = SPUserInfo.getToken(KitBaseApp.getContext());

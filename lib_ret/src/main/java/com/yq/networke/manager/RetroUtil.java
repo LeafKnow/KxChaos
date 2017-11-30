@@ -3,8 +3,9 @@ package com.yq.networke.manager;
 
 import com.yq.networke.bean.ResultBean;
 
-import rx.Observable;
-import rx.Subscriber;
+import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
 
 
 /**
@@ -12,22 +13,24 @@ import rx.Subscriber;
  */
 public class RetroUtil {
     public static <T> Observable<T> flatResult(final ResultBean<T> result) {
-        return Observable.create(new Observable.OnSubscribe<T>() {
+        return Observable.create(new ObservableOnSubscribe<T>() {
             @Override
-            public void call(Subscriber<? super T> subscriber) {
+            public void subscribe(ObservableEmitter<T> subscriber) throws Exception {
                 switch (result.getStatus()) {
                     case 200:
-                        subscriber.onNext(result.getResult());
+                        if (null!=result.getResult()) {
+                            subscriber.onNext(result.getResult());
+                        }
                         break;
                     case 12:
                     case 13:
-                       // EventBus.getDefault().post(new UpDateEvent());
+                        // EventBus.getDefault().post(new UpDateEvent());
                         break;
                     default:
                         subscriber.onError(new ApiException(result.getStatus()+"", result.getMessage()));
                         break;
                 }
-                subscriber.onCompleted();
+                subscriber.onComplete();
             }
         });
     }

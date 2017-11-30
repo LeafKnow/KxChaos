@@ -1,5 +1,7 @@
 package com.yq.networke.api;
 
+import com.yq.networke.bean.ResultBean;
+
 import java.util.List;
 import java.util.Map;
 
@@ -35,34 +37,34 @@ import static com.yq.networke.manager.url.RetrofitUrlManager.DOMAIN_NAME_HEADER;
 public interface ApiService {
     @Headers({DOMAIN_NAME_HEADER + GITHUB_DOMAIN_NAME}) //如果不需要多个 BaseUrl ,继续使用初始化时传入 Retrofit 中的默认 BaseUrl ,就不要加上 DOMAIN_NAME_HEADER 这个 Header
     @GET()
-    Observable<ResponseBody> get(@Url String url, @QueryMap Map<String, String> maps);
+    Observable<ResultBean> get(@Url String url, @QueryMap Map<String, String> maps);
 
 
     @Headers({DOMAIN_NAME_HEADER + GITHUB_DOMAIN_NAME})
     @FormUrlEncoded
     @POST()
-    Observable<ResponseBody> post(@Url() String url, @FieldMap Map<String, String> maps);
+    Observable<ResultBean> post(@Url() String url, @FieldMap Map<String, String> maps);
 
 
     @Headers({DOMAIN_NAME_HEADER + GITHUB_DOMAIN_NAME})
     @FormUrlEncoded
     @POST()
-    Observable<ResponseBody> postForm(@Url() String url, @FieldMap Map<String, Object> maps);
+    Observable<ResultBean> postForm(@Url() String url, @FieldMap Map<String, Object> maps);
 
 
     @Headers({DOMAIN_NAME_HEADER + GITHUB_DOMAIN_NAME})
     @POST()
-    Observable<ResponseBody> postBody(@Url() String url, @Body RequestBody requestBody);
+    Observable<ResultBean> postBody(@Url() String url, @Body RequestBody requestBody);
 
 
     @Headers({DOMAIN_NAME_HEADER + GITHUB_DOMAIN_NAME})
     @HEAD()
-    Observable<ResponseBody> head(@Url String url, @QueryMap Map<String, String> maps);
+    Observable<ResultBean> head(@Url String url, @QueryMap Map<String, String> maps);
 
 
     @Headers({DOMAIN_NAME_HEADER + GITHUB_DOMAIN_NAME})
     @OPTIONS()
-    Observable<ResponseBody> options(@Url String url, @QueryMap Map<String, String> maps);
+    Observable<ResultBean> options(@Url String url, @QueryMap Map<String, String> maps);
 
 
     @Headers({DOMAIN_NAME_HEADER + GITHUB_DOMAIN_NAME})
@@ -74,24 +76,24 @@ public interface ApiService {
     @Headers({DOMAIN_NAME_HEADER + GITHUB_DOMAIN_NAME})
     @FormUrlEncoded
     @PATCH()
-    Observable<ResponseBody> patch(@Url() String url, @FieldMap Map<String, String> maps);
+    Observable<ResultBean> patch(@Url() String url, @FieldMap Map<String, String> maps);
 
 
     @Headers({DOMAIN_NAME_HEADER + GITHUB_DOMAIN_NAME})
     @FormUrlEncoded
     @DELETE()
-    Observable<ResponseBody> delete(@Url() String url, @FieldMap Map<String, String> maps);
+    Observable<ResultBean> delete(@Url() String url, @FieldMap Map<String, String> maps);
 
 
     @Headers({DOMAIN_NAME_HEADER + GITHUB_DOMAIN_NAME})
     @Streaming
     @GET()
-    Observable<ResponseBody> downFile(@Url() String url, @QueryMap Map<String, String> maps);
+    Observable<ResultBean> downFile(@Url() String url, @QueryMap Map<String, String> maps);
 
 
     @Headers({DOMAIN_NAME_HEADER + GITHUB_DOMAIN_NAME})
     @Multipart
     @POST()
-    Observable<ResponseBody> uploadFiles(@Url() String url, @Part() List<MultipartBody.Part> parts);
+    Observable<ResultBean> uploadFiles(@Url() String url, @Part() List<MultipartBody.Part> parts);
 
 }
