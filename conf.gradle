@@ -41,6 +41,7 @@ ext {
             VadapterRxjava   :'2.0.1',
             VdebugDb         :'1.0.1',
             Vutilcode        :'1.9.3',
+            Vagentweb        :'2.0.1'
 
     ]
 
@@ -127,5 +128,8 @@ ext {
                     "com.amitshekhar.android:debug-db:${android["VdebugDb"]}",
             "utilcode"       ://Android常用工具集成库
                     "com.blankj:utilcode:${android["Vutilcode"]}",
+            "agentweb"       ://webview封装 https://github.com/Justson/AgentWeb
+                    "com.just.agentweb:agentweb:${android["Vagentweb"]}",
+
     ]
 }

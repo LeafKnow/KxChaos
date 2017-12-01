@@ -88,5 +88,8 @@ dependencies {
     compile rootProject.ext.dependencies["constraint-layout"]
     //dex 65k
     compile rootProject.ext.dependencies["multidex"]
+    //web
+    compile rootProject.ext.dependencies["agentweb"]
+
 
 }

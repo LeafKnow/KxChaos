@@ -74,6 +74,7 @@ public class MineFmt extends KitBaseFmt {
 
             @Override
             public void onError(Throwable e) {
+                if (null!=e)
                 Log.e("onError",e.getMessage());
             }
 
