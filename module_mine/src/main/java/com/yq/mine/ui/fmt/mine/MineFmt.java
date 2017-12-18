@@ -2,8 +2,6 @@ package com.yq.mine.ui.fmt.mine;
 
 
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
@@ -19,7 +17,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import butterknife.BindView;
-import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 import rx.functions.Action1;
@@ -56,33 +53,31 @@ public class MineFmt extends KitBaseFmt {
 
     @Override
     public void initData(Bundle savedInstanceState) {
-        Map<String,String> parm= new HashMap<>();
-        parm.put("city","北京");
-        Observable observable= ServiceManager.create(ApiService.class)
-                .get("http://www.sojson.com/open/api/weather/json.shtml",parm)
-                .compose(RxSchedulers.io_main());
-        observable.subscribe(new Observer<String>() {
-            @Override
-            public void onSubscribe(Disposable d) {
+        Map<String, Object> parm = new HashMap<>();
+        parm.put("city", "北京");
+        ServiceManager.create(ApiService.class)
+                .get("http://www.sojson.com/open/api/weather/json.shtml", parm)
+                .compose(RxSchedulers.io_main())
+                .subscribe(new Observer() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
 
-            }
+                    }
 
-            @Override
-            public void onNext(String value) {
-                Log.e("onNext","onNext");
-            }
+                    @Override
+                    public void onNext(Object value) {
 
-            @Override
-            public void onError(Throwable e) {
-                if (null!=e)
-                Log.e("onError",e.getMessage());
-            }
+                    }
+                    @Override
+                    public void onError(Throwable e) {
 
-            @Override
-            public void onComplete() {
+                    }
 
-            }
-        });
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
     }
 
     @Override

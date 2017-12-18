@@ -37,13 +37,13 @@ import static com.yq.networke.manager.url.RetrofitUrlManager.DOMAIN_NAME_HEADER;
 public interface ApiService {
     @Headers({DOMAIN_NAME_HEADER + GITHUB_DOMAIN_NAME}) //如果不需要多个 BaseUrl ,继续使用初始化时传入 Retrofit 中的默认 BaseUrl ,就不要加上 DOMAIN_NAME_HEADER 这个 Header
     @GET()
-    Observable<ResultBean> get(@Url String url, @QueryMap Map<String, String> maps);
+    Observable<ResultBean> get(@Url String url, @QueryMap Map<String, Object> maps);
 
 
     @Headers({DOMAIN_NAME_HEADER + GITHUB_DOMAIN_NAME})
     @FormUrlEncoded
     @POST()
-    Observable<ResultBean> post(@Url() String url, @FieldMap Map<String, String> maps);
+    Observable<ResultBean> post(@Url() String url, @FieldMap Map<String, Object> maps);
 
 
     @Headers({DOMAIN_NAME_HEADER + GITHUB_DOMAIN_NAME})
@@ -59,36 +59,36 @@ public interface ApiService {
 
     @Headers({DOMAIN_NAME_HEADER + GITHUB_DOMAIN_NAME})
     @HEAD()
-    Observable<ResultBean> head(@Url String url, @QueryMap Map<String, String> maps);
+    Observable<ResultBean> head(@Url String url, @QueryMap Map<String, Object> maps);
 
 
     @Headers({DOMAIN_NAME_HEADER + GITHUB_DOMAIN_NAME})
     @OPTIONS()
-    Observable<ResultBean> options(@Url String url, @QueryMap Map<String, String> maps);
+    Observable<ResultBean> options(@Url String url, @QueryMap Map<String, Object> maps);
 
 
     @Headers({DOMAIN_NAME_HEADER + GITHUB_DOMAIN_NAME})
     @FormUrlEncoded
     @PUT()
-    Observable<ResponseBody> put(@Url() String url, @FieldMap Map<String, String> maps);
+    Observable<ResponseBody> put(@Url() String url, @FieldMap Map<String, Object> maps);
 
 
     @Headers({DOMAIN_NAME_HEADER + GITHUB_DOMAIN_NAME})
     @FormUrlEncoded
     @PATCH()
-    Observable<ResultBean> patch(@Url() String url, @FieldMap Map<String, String> maps);
+    Observable<ResultBean> patch(@Url() String url, @FieldMap Map<String, Object> maps);
 
 
     @Headers({DOMAIN_NAME_HEADER + GITHUB_DOMAIN_NAME})
     @FormUrlEncoded
     @DELETE()
-    Observable<ResultBean> delete(@Url() String url, @FieldMap Map<String, String> maps);
+    Observable<ResultBean> delete(@Url() String url, @FieldMap Map<String, Object> maps);
 
 
     @Headers({DOMAIN_NAME_HEADER + GITHUB_DOMAIN_NAME})
     @Streaming
     @GET()
-    Observable<ResultBean> downFile(@Url() String url, @QueryMap Map<String, String> maps);
+    Observable<ResultBean> downFile(@Url() String url, @QueryMap Map<String, Object> maps);
 
 
     @Headers({DOMAIN_NAME_HEADER + GITHUB_DOMAIN_NAME})
