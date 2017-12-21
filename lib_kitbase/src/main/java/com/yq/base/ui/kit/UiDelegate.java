@@ -7,6 +7,7 @@ import android.view.View;
 import com.alibaba.android.arouter.facade.Postcard;
 import com.yq.base.common.camera.OpenPhoto;
 
+import me.leefeng.promptlibrary.PromptDialog;
 import rx.Observable;
 
 
@@ -39,5 +40,6 @@ public interface UiDelegate {
     void onSaveInstanceState(Bundle outState);
     OpenPhoto getOpenPhoto();
     void showOpenPhoto(View v);
+    PromptDialog getPromptDialog();
 
 }

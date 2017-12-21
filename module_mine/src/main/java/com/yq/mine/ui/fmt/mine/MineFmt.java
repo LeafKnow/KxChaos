@@ -2,6 +2,7 @@ package com.yq.mine.ui.fmt.mine;
 
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
@@ -53,39 +54,46 @@ public class MineFmt extends KitBaseFmt {
 
     @Override
     public void initData(Bundle savedInstanceState) {
+//        getData();
+    }
+
+    public void getData(){
         Map<String, Object> parm = new HashMap<>();
         parm.put("city", "北京");
         ServiceManager.create(ApiService.class)
                 .get("http://www.sojson.com/open/api/weather/json.shtml", parm)
                 .compose(RxSchedulers.io_main())
-                .subscribe(new Observer() {
+                .subscribe(new Observer(){
+
                     @Override
                     public void onSubscribe(Disposable d) {
-
+                        getUiDelegate().showProgressDialog("加载中...");
+                        Log.e("initData","onSubscribe");
                     }
 
                     @Override
                     public void onNext(Object value) {
-
+                        Log.e("initData","onNext");
                     }
+
                     @Override
                     public void onError(Throwable e) {
-
+                        Log.e("initData","onError");
                     }
 
                     @Override
                     public void onComplete() {
-
+//                        getUiDelegate().dismissProgressDialog();
+                        Log.e("initData","onComplete");
                     }
                 });
     }
-
     @Override
     public void setListener() {
         getUiDelegate().click(tvOpenPwd).subscribe(new Action1() {
             @Override
             public void call(Object o) {
-                openChangePwd();
+                getData();
             }
         });
     }

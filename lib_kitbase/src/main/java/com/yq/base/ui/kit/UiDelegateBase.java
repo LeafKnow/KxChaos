@@ -21,6 +21,8 @@ import org.greenrobot.eventbus.EventBus;
 
 import java.util.concurrent.TimeUnit;
 
+import me.leefeng.promptlibrary.PromptDialog;
+import me.leefeng.promptlibrary.util.PromptViewDialogUtil;
 import me.yokeyword.fragmentation.SupportFragment;
 import rx.Observable;
 
@@ -106,18 +108,11 @@ public class UiDelegateBase implements UiDelegate {
 
     @Override
     public void showProgressDialog(String text){
-        if(dialog==null){
-            dialog=new ProgressDialog(context);
-        }
-        if(dialog.isShowing())dialog.dismiss();
-        dialog.setMessage(text);
-        dialog.show();
+        getPromptDialog().showLoading(text);
     }
     @Override
     public void dismissProgressDialog(){
-        if(dialog!=null){
-            dialog.dismiss();
-        }
+        getPromptDialog().dismiss();
     }
 
     @Override
@@ -157,6 +152,12 @@ public class UiDelegateBase implements UiDelegate {
         }else {
             toastShort("拍照组件未初始化！");
         }
+    }
+
+    @Override
+    public PromptDialog getPromptDialog() {
+        return PromptViewDialogUtil.create(context)
+                .getPromptDialog();
     }
 
 }
